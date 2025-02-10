@@ -1,0 +1,132 @@
+/* Estilos gerais */
+:root {
+  --cor-primaria: #f52727;
+  --cor-secundaria: #000000;
+  --border-radius: 10px;
+  --padding: 5px;
+  --font-size-base: 14px;
+  --font-size-textarea: 16px;
+}
+
+.container {
+  max-width: 95%;
+  margin: 0 auto;
+  padding: 0 5px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Usando um gap maior para mais espaçamento entre os itens */
+}
+
+.form-group {
+  flex: 1 1 calc(33.333% - 10px); /* Ajuste flexível, baseado no layout de 3 colunas */
+  display: flex;
+  flex-direction: column;
+  min-width: 200px; /* Garante um tamanho mínimo para os campos */
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: var(--cor-secundaria);
+}
+
+.form-control {
+  border-radius: var(--border-radius);
+  padding: var(--padding);
+  font-size: var(--font-size-base);
+  box-sizing: border-box;
+  border-color: rgb(2, 2, 2);
+}
+
+h1 {
+  color: var(--cor-primaria);
+  text-align: center;
+}
+
+h2,
+h3 {
+  width: 100%;
+  font-weight: bold;
+  border-bottom: 1px solid #ccc;
+}
+
+.text-campo {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.textarea-container {
+  margin-bottom: 20px;
+}
+
+textarea.form-control {
+  width: 100%;
+  max-width: 100%;
+  min-height: 150px;
+  padding: 10px;
+  font-size: var(--font-size-textarea);
+  resize: vertical;
+}
+
+.btn-eletro,
+.btn-save,
+.btn-print {
+  width: 100px;
+  margin-top: 10px; /* Mais espaçamento entre os botões */
+}
+
+/* Estilos específicos para impressão */
+@media print {
+  body {
+    font-size: 12px;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .row {
+    display: block;
+  }
+
+  .form-group {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  label {
+    font-size: 1rem;
+  }
+
+  .form-control {
+    font-size: 12px;
+    border-radius: 0;
+    padding: 8px;
+    border: 1px solid #000;
+  }
+
+  textarea.form-control {
+    min-height: 120px;
+  }
+
+  /* Remove botões de impressão */
+  .btn-eletro,
+  .btn-save,
+  .btn-print {
+    display: none;
+  }
+
+  h1 {
+    color: #000;
+  }
+
+  h2,
+  h3 {
+    border-bottom: 1px solid #000;
+  }
+}
