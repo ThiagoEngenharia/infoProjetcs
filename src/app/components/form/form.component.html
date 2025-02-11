@@ -1052,14 +1052,14 @@
     <div class="col">
       <div class="form-group">
         <label for="alturaRodape">Altura do Rodapé:</label>
-        <input type="text" id="alturaRodape" [(ngModel)]="form.rodape.altura" class="form-control" placeholder="Digite a altura">
+        <input type="text" id="alturaRodape" [(ngModel)]="form.rodape.altura" class="form-control">
       </div>
     </div>
 
     <div class="col">
       <div class="form-group">
         <label for="afastadoRodape">Afastamento do Rodapé:</label>
-        <input type="text" id="afastadoRodape" [(ngModel)]="form.rodape.afastado" class="form-control" placeholder="Digite o afastamento">
+        <input type="text" id="afastadoRodape" [(ngModel)]="form.rodape.afastado" class="form-control">
       </div>
     </div>
   </div>
@@ -1074,7 +1074,7 @@
     <div class="col">
       <div class="form-group">
         <span class="title">Roda Teto</span>
-        <label for="modeloRodaTeto">Modelo da Roda Teto:</label>
+        <label for="modeloRodaTeto">Modelo do Roda Teto:</label>
         <select id="modeloRodaTeto" [(ngModel)]="form.rodaTeto.modelo" class="form-control">
           <option *ngFor="let item of listasOpcoes.modelosRodaTeto" [value]="item">{{ item }}</option>
         </select>
@@ -1084,14 +1084,14 @@
     <div class="col">
       <div class="form-group">
         <label for="alturaRodaTeto">Altura:</label>
-        <input type="text" id="alturaRodaTeto" [(ngModel)]="form.rodaTeto.altura" class="form-control" placeholder="Digite a altura">
+        <input type="text" id="alturaRodaTeto" [(ngModel)]="form.rodaTeto.altura" class="form-control">
       </div>
     </div>
 
     <div class="col">
       <div class="form-group">
-        <label for="afastadoRodaTeto">Afastamento:</label>
-        <input type="text" id="afastadoRodaTeto" [(ngModel)]="form.rodaTeto.afastado" class="form-control" placeholder="Digite o afastamento">
+        <label for="afastadoRodaTeto">Afastamento Frontal:</label>
+        <input type="text" id="afastadoRodaTeto" [(ngModel)]="form.rodaTeto.afastado" class="form-control">
       </div>
     </div>
   </div>
@@ -1103,10 +1103,9 @@
 
 <div class="container-fluid">
   <div class="form-group col-eletro">
-    <span class="title">Eletrodoméstico</span>
-    <label for="codigoEletro">Código do Modelo</label>
+    <span class="title-eletro">Eletrodoméstico</span>
     <div class="d-flex">
-      <input type="text" id="codigoEletro" [(ngModel)]="eletroCodigo" class="form-control" placeholder="Código do Eletro" />
+      <input type="text" id="codigoEletro" [(ngModel)]="eletroCodigo" class="input-eletro" placeholder="Digite o Código do Eletro" />
       <button (click)="buscarEletro()" class="btn btn-primary ml-2">Buscar</button>
     </div>
   </div>
