@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { EletroService, EletroDTO } from 'src/app/services/eletro.service';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 // Definição de tipos para o formulário
 interface Form {
