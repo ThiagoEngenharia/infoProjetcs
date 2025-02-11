@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { FormData } from '../models/form.model';
+import { DropdownOption } from '../models/dropdown-option.model';
+import { UpdateResponse } from '../models/updateresponse.model';
+import { DeleteResponse } from '../models/delete-response.model';
+import { SubmissionResponse } from '../models/submission-response.model';
+import { FormData } from '../models/form.model'; // Certifique-se de que o FormData esteja corretamente importado
 
 @Injectable({
   providedIn: 'root',
@@ -14,15 +18,15 @@ export class FormService {
   /**
    * Envia os dados do formulário para o backend (novo formulário)
    */
-  submitForm(data: FormData): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/submit`, data);
+  submitForm(data: FormData): Observable<SubmissionResponse> {
+    return this.http.post<SubmissionResponse>(`${this.apiUrl}/submit`, data);
   }
 
   /**
    * Obtém todas as opções de um determinado campo das listas suspensas
    */
-  getDropdownOptions(endpoint: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/dropdown/${endpoint}`);
+  getDropdownOptions(endpoint: string): Observable<DropdownOption[]> {
+    return this.http.get<DropdownOption[]>(`${this.apiUrl}/dropdown/${endpoint}`);
   }
 
   /**
@@ -35,14 +39,14 @@ export class FormService {
   /**
    * Atualiza um formulário já existente no banco de dados
    */
-  updateForm(id: number, data: FormData): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/update/${id}`, data);
+  updateForm(id: number, data: FormData): Observable<UpdateResponse> {
+    return this.http.put<UpdateResponse>(`${this.apiUrl}/update/${id}`, data);
   }
 
   /**
    * Exclui um formulário do banco de dados
    */
-  deleteForm(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/delete/${id}`);
+  deleteForm(id: number): Observable<DeleteResponse> {
+    return this.http.delete<DeleteResponse>(`${this.apiUrl}/delete/${id}`);
   }
 }
