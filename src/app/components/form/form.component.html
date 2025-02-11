@@ -4,14 +4,15 @@
 <div class="title">
   <h1>Informações do Projeto</h1>
 </div>
-<hr>
+
 <!-- Seção: Dados -->
 <div>
-  <h3>Dados</h3>
-  <div class="container">
+  <div class="form-title">
+  <div class="container-fluid">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
       <div class="col">
         <div class="form-group">
+          <span class="title">Dados</span>
           <label for="nomeCliente">Nome do Cliente:</label>
           <input type="text" id="nomeCliente" [(ngModel)]="form.nomeCliente" class="form-control">
         </div>
@@ -33,14 +34,17 @@
     </div>
   </div>
 </div>
+</div>
 
 
 <!-- Seção: Cores do MDF -->
-<h3>Cores do MDF</h3>
-<div class="container">
+<div>
+  <div class="form-title">
+<div class="container-fluid">
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
     <div class="col">
       <div class="form-group">
+        <span class="title">Cores do MDF</span>
         <label for="corMDF1">Cor MDF 1:</label>
         <select id="corMDF1" [(ngModel)]="form.coresProjeto.cor1" class="form-control">
           <option *ngFor="let cor of listasOpcoes.coresMDF; trackBy: trackByFn" [value]="cor">{{ cor }}</option>
@@ -67,14 +71,16 @@
     </div>
   </div>
 </div>
-
+</div>
 
 <!-- Seção: Puxador Superior -->
-<h3>Puxador Superior</h3>
-<div class="container">
+<div>
+  <div class="form-title">
+<div class="container-fluid">
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
     <div class="col">
       <div class="form-group">
+        <span class="title">Pux Superior</span>
         <label for="modeloPuxadorSuperior">Modelo:</label>
         <select id="modeloPuxadorSuperior" [(ngModel)]="form.puxadorSuperior.modelo" class="form-control">
           <option *ngFor="let item of listasOpcoes.modelosPuxadorSuperior; trackBy: trackByFn" [value]="item">{{ item }}</option>
@@ -108,14 +114,16 @@
     </div>
   </div>
 </div>
-
+</div>
 
 <!-- Seção: Puxador Inferior -->
-<h3>Puxador Inferior</h3>
-<div class="container">
+<div>
+  <div class="form-title">
+<div class="container-fluid">
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
     <div class="col">
       <div class="form-group">
+        <span class="title">Pux Inferior</span>
         <label for="modeloPuxadorInferior">Modelo:</label>
         <select id="modeloPuxadorInferior" [(ngModel)]="form.puxadorInferior.modelo" class="form-control">
           <option *ngFor="let item of listasOpcoes.modelosPuxadorInferior; trackBy: trackByFn" [value]="item">{{ item }}</option>
@@ -149,13 +157,16 @@
     </div>
   </div>
 </div>
+</div>
 
 <!-- Seção: Porta Perfil -->
-<h3>Porta de Perfil</h3>
-<div class="container">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+<div>
+  <div class="form-title">
+<div class="container-fluid">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5">
     <div class="col">
       <div class="form-group">
+        <span class="title">Porta Perfil</span>
         <label for="modeloPerfil">Modelo do Perfil:</label>
         <select id="modeloPerfil" [(ngModel)]="form.portaPerfil.modeloPerfil" class="form-control">
           <option *ngFor="let item of listasOpcoes.modelosPerfil; trackBy: trackByFn" [value]="item">{{ item }}</option>
@@ -200,13 +211,16 @@
     </div>
   </div>
 </div>
+</div>
 
 <!-- Seção: Vidro -->
-<h3>Vidro</h3>
-<div class="container">
+<div>
+  <div class="form-title">
+<div class="container-fluid">
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
     <div class="col">
       <div class="form-group">
+        <span class="title">Vidro</span>
         <label for="espessuraVidro">Espessura do Vidro:</label>
         <select id="espessuraVidro" [(ngModel)]="form.vidro.espessura" class="form-control">
           <option *ngFor="let item of listasOpcoes.espessurasVidro; trackBy: trackByFn" [value]="item">{{ item }}</option>
@@ -233,13 +247,16 @@
     </div>
   </div>
 </div>
+</div>
 
 <!-- Seção: Espelho -->
-<h3>Espelho</h3>
-<div class="container">
+<div>
+  <div class="form-title">
+<div class="container-fluid">
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
     <div class="col">
       <div class="form-group">
+        <span class="title">Espelho</span>
         <label for="espessuraEspelho">Espessura do Espelho:</label>
         <select id="espessuraEspelho" [(ngModel)]="form.espelho.espessura" class="form-control">
           <option *ngFor="let item of listasOpcoes.espessurasEspelho; trackBy: trackByFn" [value]="item">{{ item }}</option>
@@ -266,14 +283,17 @@
     </div>
   </div>
 </div>
+</div>
 
 <!-- Seção: Porta Deslizante -->
-<h3>Porta Deslizante</h3>
-<div class="container">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+<div>
+  <div class="form-title">
+<div class="container-fluid">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5">
 
     <div class="col">
       <div class="form-group">
+        <span class="title">Porta Deslizante</span>
         <label for="nomeSistemaPortaDeslizante">Nome do Sistema:</label>
         <select id="nomeSistemaPortaDeslizante" [(ngModel)]="form.sistemaPortaDeslizante.nomeSistema" class="form-control">
           <option *ngFor="let item of listasOpcoes.nomesSistemasPortaDeslizante; trackBy: trackByFn" [value]="item">{{ item }}</option>
@@ -314,17 +334,19 @@
         </select>
       </div>
     </div>
-
   </div>
+</div>
 </div>
 
 <!-- Seção: Porta Passagem -->
-<h3>Porta de Passagem</h3>
-<div class="container">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+<div>
+  <div class="form-title">
+<div class="container-fluid">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5">
 
     <div class="col">
       <div class="form-group">
+        <span class="title">Porta Passagem</span>
         <label for="nomeSistemaPortaPassagem">Nome do Sistema:</label>
         <select id="nomeSistemaPortaPassagem" [(ngModel)]="form.portaPassagem.nomeSistema" class="form-control">
           <option *ngFor="let item of listasOpcoes.sistemasPortaPassagem; trackBy: trackByFn" [value]="item">{{ item }}</option>
@@ -368,14 +390,16 @@
 
   </div>
 </div>
+</div>
 
 <!-- Seção: Estofaria -->
-<h3>Estofaria</h3>
-<div class="container">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
-
+<div>
+  <div class="form-title">
+<div class="container-fluid">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
     <div class="col">
       <div class="form-group">
+        <span class="title">Estofaria</span>
         <label for="modeloEstofaria">Modelo:</label>
         <select id="modeloEstofaria" [(ngModel)]="form.estofaria.modelo" class="form-control">
           <option *ngFor="let item of listasOpcoes.modelosEstofaria; trackBy: trackByFn" [value]="item">{{ item }}</option>
@@ -409,17 +433,18 @@
         </select>
       </div>
     </div>
-
   </div>
+</div>
 </div>
 
 <!-- Seção: Serralheria -->
-<h3>Serralheria</h3>
-<div class="container">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
-
+<div>
+  <div class="form-title">
+<div class="container-fluid">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
     <div class="col">
       <div class="form-group">
+        <span class="title">Serralheria</span>
         <label for="modeloSerralheria">Modelo:</label>
         <select id="modeloSerralheria" [(ngModel)]="form.serralheria.modelo" class="form-control">
           <option *ngFor="let item of listasOpcoes.modelosSerralheria; trackBy: trackByFn" [value]="item">{{ item }}</option>
@@ -456,14 +481,16 @@
 
   </div>
 </div>
+</div>
 
 <!-- Seção: Iluminação -->
-<h3>Iluminação</h3>
-<div class="container">
+<div>
+  <div class="form-title">
+<div class="container-fluid">
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
-
     <div class="col">
       <div class="form-group">
+        <span class="title">Iluminação</span>
         <label for="modeloIluminacao">Modelo:</label>
         <select id="modeloIluminacao" [(ngModel)]="form.iluminacao.modelo" class="form-control">
           <option *ngFor="let item of listasOpcoes.modelosIluminacao; trackBy: trackByFn" [value]="item">{{ item }}</option>
@@ -491,14 +518,17 @@
 
   </div>
 </div>
+</div>
 
 <!-- Seção: Tomada -->
-<h3>Tomada</h3>
-<div class="container">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+<div>
+  <div class="form-title">
+<div class="container-fluid">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
 
     <div class="col">
       <div class="form-group">
+        <span class="title">Tomada</span>
         <label for="modeloTomada">Modelo:</label>
         <select id="modeloTomada" [(ngModel)]="form.tomada.modelo" class="form-control">
           <option *ngFor="let item of listasOpcoes.modelosTomada; trackBy: trackByFn" [value]="item">{{ item }}</option>
@@ -533,13 +563,16 @@
 
   </div>
 </div>
-<!-- Seção: Interruptor -->
-<h3>Interruptor</h3>
-<div class="container">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+</div>
 
+<!-- Seção: Interruptor -->
+<div>
+  <div class="form-title">
+<div class="container-fluid">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
     <div class="col">
       <div class="form-group">
+        <span class="title">Modelo</span>
         <label for="modeloInterruptor">Modelo:</label>
         <select id="modeloInterruptor" [(ngModel)]="form.interruptor.modelo" class="form-control">
           <option *ngFor="let item of listasOpcoes.modelosInterruptor; trackBy: trackByFn" [value]="item">{{ item }}</option>
@@ -574,13 +607,16 @@
 
   </div>
 </div>
-<!-- Seção: Passa Fio -->
-<h3>Passa Fio</h3>
-<div class="container">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+</div>
 
+<!-- Seção: Passa Fio -->
+<div>
+  <div class="form-title">
+<div class="container-fluid">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
     <div class="col">
       <div class="form-group">
+        <span class="title">Passa Fio</span>
         <label for="modeloPassaFio">Modelo:</label>
         <select id="modeloPassaFio" [(ngModel)]="form.passaFio.modelo" class="form-control">
           <option *ngFor="let item of listasOpcoes.modelosPassaFio; trackBy: trackByFn" [value]="item">{{ item }}</option>
@@ -615,14 +651,17 @@
 
   </div>
 </div>
+</div>
 
 <!-- Seção: Porta Tempero -->
-<h3>Porta Tempero</h3>
-<div class="container">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+<div>
+  <div class="form-title">
+<div class="container-fluid">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
 
     <div class="col">
       <div class="form-group">
+        <span class="title">Porta Tempero</span>
         <label for="modeloPortaTempero">Modelo:</label>
         <select id="modeloPortaTempero" [(ngModel)]="form.portaTempero.modelo" class="form-control">
           <option *ngFor="let item of listasOpcoes.modelosPortaTempero; trackBy: trackByFn" [value]="item">{{ item }}</option>
@@ -657,14 +696,16 @@
 
   </div>
 </div>
+</div>
 
 <!-- Seção: Lixeira -->
-<h3>Lixeira</h3>
-<div class="container">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
-
+<div>
+  <div class="form-title">
+<div class="container-fluid">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
     <div class="col">
       <div class="form-group">
+        <span class="title">Lixeira</span>
         <label for="modeloLixeira">Modelo:</label>
         <select id="modeloLixeira" [(ngModel)]="form.lixeira.modelo" class="form-control">
           <option *ngFor="let item of listasOpcoes.modelosLixeira; trackBy: trackByFn" [value]="item">{{ item }}</option>
@@ -699,22 +740,24 @@
 
   </div>
 </div>
+</div>
 
 
 <!-- Seção: Tulha -->
-<h3>Tulha</h3>
-<div class="container">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+<div>
+  <div class="form-title">
+<div class="container-fluid">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
 
     <div class="col">
       <div class="form-group">
+        <span class="title">Tulha</span>
         <label for="modeloTulha">Modelo:</label>
         <select id="modeloTulha" [(ngModel)]="form.tulha.modelo" class="form-control">
           <option *ngFor="let item of listasOpcoes.modelosTulha; trackBy: trackByFn" [value]="item">{{ item }}</option>
         </select>
       </div>
     </div>
-
     <div class="col">
       <div class="form-group">
         <label for="acabamentoTulha">Acabamento:</label>
@@ -742,14 +785,16 @@
 
   </div>
 </div>
+</div>
 
 <!-- Seção: Divisor de Gaveta -->
-<h3>Divisor de Gaveta</h3>
-<div class="container">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
-
+<div>
+  <div class="form-title">
+<div class="container-fluid">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
     <div class="col">
       <div class="form-group">
+        <span class="title">Divisor de Gaveta</span>
         <label for="modeloDivisorGaveta">Modelo:</label>
         <select id="modeloDivisorGaveta" [(ngModel)]="form.divisorGaveta.modelo" class="form-control">
           <option *ngFor="let item of listasOpcoes.modelosDivisorGaveta; trackBy: trackByFn" [value]="item">{{ item }}</option>
@@ -784,14 +829,16 @@
 
   </div>
 </div>
+</div>
 
 <!-- Seção: Divisor de Talher -->
-<h3>Divisor de Talher</h3>
-<div class="container">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
-
+<div>
+  <div class="form-title">
+<div class="container-fluid">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
     <div class="col">
       <div class="form-group">
+        <span class="title">Divisor de Talher</span>
         <label for="modeloDivisorTalher">Modelo:</label>
         <select id="modeloDivisorTalher" [(ngModel)]="form.divisorTalher.modelo" class="form-control">
           <option *ngFor="let item of listasOpcoes.modelosDivisorTalher; trackBy: trackByFn" [value]="item">{{ item }}</option>
@@ -826,14 +873,17 @@
 
   </div>
 </div>
+</div>
 
 
 <!-- Seção: Tábua de Passar -->
-<h3>Tábua de Passar</h3>
-<div class="container">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+<div>
+  <div class="form-title">
+<div class="container-fluid">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
     <div class="col">
       <div class="form-group">
+        <span class="title">Tábua de Passar</span>
         <label for="modeloTabuaPassar">Modelo:</label>
         <select id="modeloTabuaPassar" [(ngModel)]="form.tabuaPassar.modelo" class="form-control">
           <option *ngFor="let item of listasOpcoes.modelosTabuaPassar; trackBy: trackByFn" [value]="item">{{ item }}</option>
@@ -867,13 +917,16 @@
     </div>
   </div>
 </div>
+</div>
 
 <!-- Seção: Divisor Acrílico -->
-<h3>Divisor Acrílico</h3>
-<div class="container">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+<div>
+  <div class="form-title">
+<div class="container-fluid">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
     <div class="col">
       <div class="form-group">
+        <span class="title">Divisor Acrílico</span>
         <label for="modeloDivisorAcrilico">Modelo:</label>
         <select id="modeloDivisorAcrilico" [(ngModel)]="form.divisorAcrilico.modelo" class="form-control">
           <option *ngFor="let item of listasOpcoes.modelosDivisorAcrilico; trackBy: trackByFn" [value]="item">{{ item }}</option>
@@ -907,13 +960,16 @@
     </div>
   </div>
 </div>
+</div>
 
 <!-- Seção: Pedra -->
-<h3>Pedra</h3>
-<div class="container">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+<div>
+  <div class="form-title">
+<div class="container-fluid">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
     <div class="col">
       <div class="form-group">
+        <span class="title">Pedra</span>
         <label for="existentePedra">Existente:</label>
         <select id="existentePedra" [(ngModel)]="form.pedra.existente" class="form-control">
           <option value="Sim">Sim</option>
@@ -944,13 +1000,16 @@
     </div>
   </div>
 </div>
+</div>
 
 <!-- Seção: Box -->
-<h3>Box</h3>
-<div class="container">
+<div>
+  <div class="form-title">
+<div class="container-fluid">
   <div class="row row-cols-1 row-cols-sm-2">
     <div class="col">
       <div class="form-group">
+        <span class="title">Box</span>
         <label for="margemBox">Margem:</label>
         <input type="number" id="margemBox" [(ngModel)]="form.box.margem" class="form-control">
       </div>
@@ -964,13 +1023,16 @@
     </div>
   </div>
 </div>
+</div>
 
 <!-- Seção: Rodapé -->
-<h3>Rodapé</h3>
-<div class="container">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+<div>
+  <div class="form-title">
+<div class="container-fluid">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
     <div class="col">
       <div class="form-group">
+        <span class="title">Rodapé</span>
         <label for="modeloRodape">Modelo do Rodapé:</label>
         <select id="modeloRodape" [(ngModel)]="form.rodape.modelo" class="form-control">
           <option *ngFor="let item of listasOpcoes.modelosRodape" [value]="item">{{ item }}</option>
@@ -1002,13 +1064,16 @@
     </div>
   </div>
 </div>
+</div>
 
 <!-- Seção: Roda Teto -->
-<h3>Roda Teto</h3>
-<div class="container">
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+<div>
+  <div class="form-title">
+<div class="container-fluid">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
     <div class="col">
       <div class="form-group">
+        <span class="title">Roda Teto</span>
         <label for="modeloRodaTeto">Modelo da Roda Teto:</label>
         <select id="modeloRodaTeto" [(ngModel)]="form.rodaTeto.modelo" class="form-control">
           <option *ngFor="let item of listasOpcoes.modelosRodaTeto" [value]="item">{{ item }}</option>
@@ -1031,15 +1096,17 @@
     </div>
   </div>
 </div>
+</div>
 
 
 <!-- Seção: Eletrodoméstico -->
-<h3>Eletrodoméstico</h3>
-<div class="container">
-  <div class="form-group col">
+
+<div class="container-fluid">
+  <div class="form-group col-eletro">
+    <span class="title">Eletrodoméstico</span>
     <label for="codigoEletro">Código do Modelo</label>
     <div class="d-flex">
-      <input type="text" id="codigoEletro" [(ngModel)]="eletroCodigo" class="form-control" placeholder="Digite o código do modelo" />
+      <input type="text" id="codigoEletro" [(ngModel)]="eletroCodigo" class="form-control" placeholder="Código do Eletro" />
       <button (click)="buscarEletro()" class="btn btn-primary ml-2">Buscar</button>
     </div>
   </div>
@@ -1059,8 +1126,8 @@
   </div>
 
   <!-- Seção: Observações -->
-  <h3>Observações</h3>
-  <div class="form-group">
+  <h3 class="title">Observações</h3>
+  <div class="form-group col-full-width">
     <textarea id="observacoes" [(ngModel)]="form.observacoes" class="form-control" rows="5" placeholder="Digite suas observações finais aqui..."></textarea>
   </div>
 
@@ -1070,4 +1137,3 @@
     <button (click)="printPage()" class="btn btn-secondary">Imprimir</button>
   </div>
 </div>
-
