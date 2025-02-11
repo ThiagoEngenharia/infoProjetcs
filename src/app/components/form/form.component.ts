@@ -135,9 +135,10 @@ interface Form {
 }
 
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css'],
+    selector: 'app-form',
+    templateUrl: './form.component.html',
+    styleUrls: ['./form.component.css'],
+    standalone: false
 })
 export class FormComponent {
   form: Form = {
