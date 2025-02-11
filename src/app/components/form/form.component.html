@@ -1,934 +1,744 @@
 
-  <div class="container">
-    <h1>Informações do Projeto</h1>
+<div class="container">
 
-    <h3>Dados</h3>
+<div class="title">
+  <h1>Informações do Projeto</h1>
+</div>
+<hr>
+<!-- Seção: Dados -->
+<div>
+<h3>Dados</h3>
+  <div class="row">
+    <div class="form-group col">
+      <label for="nomeCliente">Nome do Cliente:</label>
+      <input type="text" id="nomeCliente" [(ngModel)]="form.nomeCliente"
+        class="form-control">
+</div>
+
+<div class="form-group col">
+  <label for="vendedor">Vendedor:</label>
+    <input type="text" id="vendedor" [(ngModel)]="form.vendedor"
+      class="form-control">
+    </div>
+
+<div class="form-group col">
+  <label for="numeroPedido">Número do Pedido:</label>
+    <input type="text" id="numeroPedido" [(ngModel)]="form.numeroPedido"
+        class="form-control">
+</div>
+
+<!-- Seção: Cores do MDF -->
+<h3>Cores do MDF</h3>
+<div class="row">
+  <div class="form-group col">
+    <label for="corMDF1">Cor MDF 1:</label>
+      <select id="corMDF1" [(ngModel)]="form.coresProjeto.cor1"
+        class="form-control">
+        <option *ngFor="let cor of listasOpcoes.coresMDF; trackBy: trackByFn" [value]="cor">{{ cor }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="corMDF2">Cor MDF 2:</label>
+    <select id="corMDF2" [(ngModel)]="form.coresProjeto.cor2" class="form-control">
+      <option *ngFor="let cor of listasOpcoes.coresMDF; trackBy: trackByFn" [value]="cor">{{ cor }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="corMDF3">Cor MDF 3:</label>
+    <select id="corMDF3" [(ngModel)]="form.coresProjeto.cor3" class="form-control">
+      <option *ngFor="let cor of listasOpcoes.coresMDF; trackBy: trackByFn" [value]="cor">{{ cor }}</option>
+  </select>
+</div>
+
+<!-- Seção: Puxador Superior -->
+<h3>Puxador Superior</h3>
+  <div class="row">
+    <div class="form-group col">
+      <label for="modeloPuxadorSuperior">Modelo:</label>
+          <select id="modeloPuxadorSuperior" [(ngModel)]="form.puxadorSuperior.modelo" class="form-control">
+            <option *ngFor="let item of listasOpcoes.modelosPuxadorSuperior; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="acabamentoPuxadorSuperior">Acabamento:</label>
+    <select id="acabamentoPuxadorSuperior" [(ngModel)]="form.puxadorSuperior.acabamento" class="form-control">
+      <option *ngFor="let item of listasOpcoes.acabamentosPuxadorSuperior; trackBy: trackByFn" [value]="item">{{ item }}</option>
+   </select>
+</div>
+
+<div class="form-group col">
+  <label for="fornecedorPuxadorSuperior">Fornecedor:</label>
+    <select id="fornecedorPuxadorSuperior" [(ngModel)]="form.puxadorSuperior.fornecedor" class="form-control">
+			<option *ngFor="let item of listasOpcoes.fornecedoresPuxadorSuperior; trackBy: trackByFn" [value]="item"> {{ item }} </option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="quantidadePuxadorSuperior">Quantidade:</label>
+    <input type="number" id="quantidadePuxadorSuperior" [(ngModel)]="form.puxadorSuperior.quantidade" class="form-control" min="0">
+</div>
+
+<!-- Seção: Puxador Inferior -->
+<h3>Puxador Inferior</h3>
+  <div class="row">
+    <div class="form-group col">
+      <label for="modeloPuxadorInferior">Modelo:</label>
+      <select id="modeloPuxadorInferior" [(ngModel)]="form.puxadorInferior.modelo" class="form-control">
+				       <option *ngFor="let item of listasOpcoes.modelosPuxadorInferior; trackBy: trackByFn" [value]="item"> {{ item }} </option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="acabamentoPuxadorInferior">Acabamento:</label>
+    <select id="acabamentoPuxadorInferior" [(ngModel)]="form.puxadorInferior.acabamento" class="form-control">
+			<option *ngFor="let item of listasOpcoes.acabamentosPuxadorInferior; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="fornecedorPuxadorInferior">Fornecedor:</label>
+    <select id="fornecedorPuxadorInferior" [(ngModel)]="form.puxadorInferior.fornecedor" class="form-control">
+         <option *ngFor="let item of listasOpcoes.fornecedoresPuxadorInferior; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="quantidadePuxadorInferior">Quantidade:</label>
+   <input type="number" id="quantidadePuxadorInferior" [(ngModel)]="form.puxadorInferior.quantidade" class="form-control" min="0">
+</div>
+
+<h3>Porta de Perfil</h3>
+  <div class="row">
+      <div class="form-group col">
+        <label for="modeloPerfil">Modelo do Perfil:</label>
+          <select id="modeloPerfil" [(ngModel)]="form.portaPerfil.modeloPerfil" class="form-control">
+						 <option *ngFor="let item of listasOpcoes.modelosPerfil; trackBy: trackByFn" [value]="item">{{ item }} </option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="modeloPuxadorPerfil">Modelo do Puxador:</label>
+  <select id="modeloPuxadorPerfil" [(ngModel)]="form.portaPerfil.modeloPuxador" class="form-control">
+    <option *ngFor="let item of listasOpcoes.modelosPuxadorPerfil; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="corPerfil">Cor do Perfil:</label>
+    <select id="corPerfil" [(ngModel)]="form.portaPerfil.corPerfil" class="form-control">
+			  <option *ngFor="let item of listasOpcoes.coresPerfil; trackBy: trackByFn" [value]="item">{{ item }}</option>
+	</select>
+</div>
+
+<div class="form-group col">
+	<label for="corpoPorta">Corpo da Porta:</label>
+	<select id="corpoPorta" [(ngModel)]="form.portaPerfil.corpoPorta" class="form-control">
+		<option *ngFor="let item of listasOpcoes.corposPorta; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="acabamentoCorpo">Acabamento do Corpo:</label>
+    <select id="acabamentoCorpo" [(ngModel)]="form.portaPerfil.acabamentoCorpo" class="form-control">
+      <option *ngFor="let item of listasOpcoes.acabamentosCorpo; trackBy: trackByFn" [value]="item">{{ item }}</option>
+	</select>
+</div>
+
+<h3>Vidro</h3>
+<div class="row">
+  <div class="form-group col">
+  <label for="espessuraVidro">Espessura do Vidro:</label>
+  <select id="espessuraVidro" [(ngModel)]="form.vidro.espessura" class="form-control">
+  <option *ngFor="let item of listasOpcoes.espessurasVidro; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="acabamentoVidro">Acabamento do Vidro:</label>
+  <select id="acabamentoVidro" [(ngModel)]="form.vidro.acabamento" class="form-control">
+  <option *ngFor="let item of listasOpcoes.acabamentosVidro; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="fornecedorVidro">Fornecedor do Vidro:</label>
+  <select id="fornecedorVidro" [(ngModel)]="form.vidro.fornecedor" class="form-control">
+  <option *ngFor="let item of listasOpcoes.fornecedoresVidro; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<h3>Espelho</h3>
+ <div class="row">
+  <div class="form-group col">
+  <label for="espessuraEspelho">Espessura do Espelho:</label>
+  <select id="espessuraEspelho" [(ngModel)]="form.espelho.espessura" class="form-control">
+  <option *ngFor="let item of listasOpcoes.espessurasEspelho; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="acabamentoEspelho">Acabamento do Espelho:</label>
+  <select id="acabamentoEspelho" [(ngModel)]="form.espelho.acabamento" class="form-control">
+  <option *ngFor="let item of listasOpcoes.acabamentosEspelho; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="fornecedorEspelho">Fornecedor do Espelho:</label>
+  <select id="fornecedorEspelho" [(ngModel)]="form.espelho.fornecedor" class="form-control">
+  <option *ngFor="let item of listasOpcoes.fornecedoresEspelho; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<h3>Porta Deslizante</h3>
+<div class="row">
+   <div class="form-group col">
+  <label for="nomeSistemaPortaDeslizante">Nome do Sistema:</label>
+  <select id="nomeSistemaPortaDeslizante" [(ngModel)]="form.sistemaPortaDeslizante.nomeSistema" class="form-control">
+  <option *ngFor="let item of listasOpcoes.nomesSistemasPortaDeslizante; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="corpoPortaDeslizante">Corpo da Porta:</label>
+  <select id="corpoPortaDeslizante" [(ngModel)]="form.sistemaPortaDeslizante.corpoPorta" class="form-control">
+  <option *ngFor="let item of listasOpcoes.corposPortaDeslizante; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="acabamentoPortaDeslizante">Acabamento do Corpo:</label>
+  <select id="acabamentoPortaDeslizante" [(ngModel)]="form.sistemaPortaDeslizante.acabamentoCorpo" class="form-control">
+  <option *ngFor="let item of listasOpcoes.acabamentosPortaDeslizante; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="quantidadePortaDeslizante">Quantidade:</label>
+  <input type="number" id="quantidadePortaDeslizante" [(ngModel)]="form.sistemaPortaDeslizante.quantidade" class="form-control">
+</div>
+
+<div class="form-group col">
+  <label for="fechaduraPortaDeslizante">Fechadura:</label>
+  <select id="fechaduraPortaDeslizante" [(ngModel)]="form.sistemaPortaDeslizante.fechadura" class="form-control">
+  <option *ngFor="let item of listasOpcoes.fechadurasPortaDeslizante; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<h3>Porta de Passagem</h3>
+<div class="row">
+  <div class="form-group col">
+  <label for="nomeSistemaPortaPassagem">Nome do Sistema:</label>
+  <select id="nomeSistemaPortaPassagem" [(ngModel)]="form.portaPassagem.nomeSistema" class="form-control">
+  <option *ngFor="let item of listasOpcoes.sistemasPortaPassagem; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="corpoPortaPassagem">Corpo da Porta:</label>
+  <select id="corpoPortaPassagem" [(ngModel)]="form.portaPassagem.corpoPorta" class="form-control">
+  <option *ngFor="let item of listasOpcoes.corposPortaPassagem; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="acabamentoPortaPassagem">Acabamento do Corpo:</label>
+  <select id="acabamentoPortaPassagem" [(ngModel)]="form.portaPassagem.acabamentoCorpo" class="form-control">
+  <option *ngFor="let item of listasOpcoes.acabamentosPortaPassagem; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="fechaduraPortaPassagem">Fechadura:</label>
+  <select id="fechaduraPortaPassagem" [(ngModel)]="form.portaPassagem.fechadura" class="form-control">
+  <option *ngFor="let item of listasOpcoes.fechadurasPortaPassagem; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="quantidadePortaPassagem">Quantidade:</label>
+  <input type="number" id="quantidadePortaPassagem" [(ngModel)]="form.portaPassagem.quantidade" class="form-control">
+</div>
+
+<h3>Estofaria</h3>
+  <div class="row">
+    <div class="form-group col">
+    <label for="modeloEstofaria">Modelo:</label>
+    <select id="modeloEstofaria" [(ngModel)]="form.estofaria.modelo" class="form-control">
+  <option *ngFor="let item of listasOpcoes.modelosEstofaria; trackBy: trackByFn" [value]="item">{{ item }}</option>
+   </select>
+</div>
+
+<div class="form-group col">
+  <label for="acabamentoEstofaria">Acabamento:</label>
+  <select id="acabamentoEstofaria" [(ngModel)]="form.estofaria.acabamento" class="form-control">
+  <option *ngFor="let item of listasOpcoes.acabamentosEstofaria; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="fornecedorEstofaria">Fornecedor:</label>
+  <select id="fornecedorEstofaria" [(ngModel)]="form.estofaria.fornecedor" class="form-control">
+  <option *ngFor="let item of listasOpcoes.fornecedoresEstofaria; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="instaladorEstofaria">Quem irá instalar:</label>
+  <select id="instaladorEstofaria" [(ngModel)]="form.estofaria.instalador" class="form-control">
+  <option *ngFor="let item of listasOpcoes.instaladoresEstofaria; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<h3>Serralheria</h3>
+  <div class="row">
+  <div class="form-group col">
+  <label for="modeloSerralheria">Modelo:</label>
+  <select id="modeloSerralheria" [(ngModel)]="form.serralheria.modelo" class="form-control">
+  <option *ngFor="let item of listasOpcoes.modelosSerralheria; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="acabamentoSerralheria">Acabamento:</label>
+  <select id="acabamentoSerralheria" [(ngModel)]="form.serralheria.acabamento" class="form-control">
+  <option *ngFor="let item of listasOpcoes.acabamentosSerralheria; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="fornecedorSerralheria">Fornecedor:</label>
+  <select id="fornecedorSerralheria" [(ngModel)]="form.serralheria.fornecedor" class="form-control">
+  <option *ngFor="let item of listasOpcoes.fornecedoresSerralheria; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+   <label for="instaladorSerralheria">Instalador:</label>
+  <select id="instaladorSerralheria" [(ngModel)]="form.serralheria.instalador" class="form-control">
+  <option *ngFor="let item of listasOpcoes.instaladoresSerralheria; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<h3>Iluminação</h3>
+<div class="row">
+   <div class="form-group col">
+  <label for="modeloIluminacao">Modelo:</label>
+  <select id="modeloIluminacao" [(ngModel)]="form.iluminacao.modelo" class="form-control">
+  <option *ngFor="let item of listasOpcoes.modelosIluminacao; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="temperaturaIluminacao">Temperatura:</label>
+  <select id="temperaturaIluminacao" [(ngModel)]="form.iluminacao.temperatura" class="form-control">
+  <option *ngFor="let item of listasOpcoes.temperaturasIluminacao; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="fornecedorIluminacao">Fornecedor:</label>
+  <select id="fornecedorIluminacao" [(ngModel)]="form.iluminacao.fornecedor" class="form-control">
+  <option *ngFor="let item of listasOpcoes.fornecedoresIluminacao; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<h3>Tomada</h3>
+<div class="row">
+   <div class="form-group col">
+  <label for="modeloTomada">Modelo:</label>
+  <select id="modeloTomada" [(ngModel)]="form.tomada.modelo" class="form-control">
+  <option *ngFor="let item of listasOpcoes.modelosTomada; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="acabamentoTomada">Acabamento:</label>
+  <select id="acabamentoTomada" [(ngModel)]="form.tomada.acabamento" class="form-control">
+  <option *ngFor="let item of listasOpcoes.acabamentosTomada; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="quantidadeTomada">Quantidade:</label>
+  <input type="number" id="quantidadeTomada" [(ngModel)]="form.tomada.quantidade" class="form-control">
+</div>
+
+<div class="form-group col">
+   <label for="fornecedorTomada">Quem irá fornecer:</label>
+  <select id="fornecedorTomada" [(ngModel)]="form.tomada.fornecedor" class="form-control">
+  <option *ngFor="let item of listasOpcoes.fornecedorTomada; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<h3>Interruptor</h3>
+<div class="row">
+  <div class="form-group col">
+  <label for="modeloInterruptor">Modelo:</label>
+  <select id="modeloInterruptor" [(ngModel)]="form.interruptor.modelo" class="form-control">
+  <option *ngFor="let item of listasOpcoes.modelosInterruptor; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="acabamentoInterruptor">Acabamento:</label>
+  <select id="acabamentoInterruptor" [(ngModel)]="form.interruptor.acabamento" class="form-control">
+  <option *ngFor="let item of listasOpcoes.acabamentosInterruptor; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+    <label for="quantidadeInterruptor">Quantidade:</label>
+    <input type="number" id="quantidadeInterruptor" [(ngModel)]="form.interruptor.quantidade" class="form-control">
+</div>
+
+<div class="form-group col">
+  <label for="fornecedorInterruptor">Quem irá fornecer:</label>
+  <select id="fornecedorInterruptor" [(ngModel)]="form.interruptor.fornecedor" class="form-control">
+  <option *ngFor="let item of listasOpcoes.fornecedoresInterruptor; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<h3>Passa Fio</h3>
+<div class="row">
+  <div class="form-group col">
+  <label for="modeloPassaFio">Modelo:</label>
+  <select id="modeloPassaFio" [(ngModel)]="form.passaFio.modelo" class="form-control">
+  <option *ngFor="let item of listasOpcoes.modelosPassaFio; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="acabamentoPassaFio">Acabamento:</label>
+  <select id="acabamentoPassaFio" [(ngModel)]="form.passaFio.acabamento" class="form-control">
+  <option *ngFor="let item of listasOpcoes.acabamentosPassaFio; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+    <label for="quantidadePassaFio">Quantidade:</label>
+  <input type="number" id="quantidadePassaFio" [(ngModel)]="form.passaFio.quantidade" class="form-control">
+</div>
+
+<div class="form-group col">
+  <label for="fornecedorPassaFio">Quem irá fornecer:</label>
+  <select id="fornecedorPassaFio" [(ngModel)]="form.passaFio.fornecedor" class="form-control">
+  <option *ngFor="let item of listasOpcoes.fornecedoresPassaFio; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<h3>Porta Tempero</h3>
+	<div class="row">
+  <div class="form-group col">
+  <label for="modeloPortaTempero">Modelo:</label>
+  <select id="modeloPortaTempero" [(ngModel)]="form.portaTempero.modelo" class="form-control">
+  <option *ngFor="let item of listasOpcoes.modelosPortaTempero; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="acabamentoPortaTempero">Acabamento:</label>
+	<select id="acabamentoPortaTempero" [(ngModel)]="form.portaTempero.acabamento" class="form-control">
+  <option *ngFor="let item of listasOpcoes.acabamentosPortaTempero; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="quantidadePortaTempero">Quantidade:</label>
+  <input type="number" id="quantidadePortaTempero" [(ngModel)]="form.portaTempero.quantidade" class="form-control">
+</div>
+
+  <div class="form-group col">
+     <label for="fornecedorPortaTempero">Quem irá fornecer:</label>
+  <select id="fornecedorPortaTempero" [(ngModel)]="form.portaTempero.fornecedor" class="form-control">
+  <option *ngFor="let item of listasOpcoes.fornecedoresPortaTempero; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<h3>Lixeira</h3>
+  <div class="row">
+  <div class="form-group col">
+  <label for="modeloLixeira">Modelo:</label>
+  <select id="modeloLixeira" [(ngModel)]="form.lixeira.modelo" class="form-control">
+  <option *ngFor="let item of listasOpcoes.modelosLixeira; trackBy: trackByFn" [value]="item">{{ item }}</option>
+ 	</select>
+</div>
+
+<div class="form-group col">
+  <label for="acabamentoLixeira">Acabamento:</label>
+  <select id="acabamentoLixeira" [(ngModel)]="form.lixeira.acabamento" class="form-control">
+  <option *ngFor="let item of listasOpcoes.acabamentosLixeira; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="quantidadeLixeira">Quantidade:</label>
+  <input type="number" id="quantidadeLixeira" [(ngModel)]="form.lixeira.quantidade" class="form-control">
+</div>
+
+<div class="form-group col">
+	<label for="fornecedorLixeira">Quem irá fornecer:</label>
+  <select id="fornecedorLixeira" [(ngModel)]="form.lixeira.fornecedor" class="form-control">
+  <option *ngFor="let item of listasOpcoes.fornecedoresLixeira; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<h3>Tulha</h3>
+<div class="row">
+  <div class="form-group col">
+  <label for="modeloTulha">Modelo:</label>
+  <select id="modeloTulha" [(ngModel)]="form.tulha.modelo" class="form-control">
+  <option *ngFor="let item of listasOpcoes.modelosTulha; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="acabamentoTulha">Acabamento:</label>
+  <select id="acabamentoTulha" [(ngModel)]="form.tulha.acabamento" class="form-control">
+  <option *ngFor="let item of listasOpcoes.acabamentosTulha; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="quantidadeTulha">Quantidade:</label>
+  <input type="number" id="quantidadeTulha" [(ngModel)]="form.tulha.quantidade" class="form-control">
+</div>
+
+<div class="form-group col">
+  <label for="fornecedorTulha">Quem irá fornecer:</label>
+  <select id="fornecedorTulha" [(ngModel)]="form.tulha.fornecedor" class="form-control">
+  <option *ngFor="let item of listasOpcoes.fornecedoresTulha; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<h3>Divisor de Gaveta</h3>
+  <div class="row">
+  <div class="form-group col">
+  <label for="modeloDivisorGaveta">Modelo:</label>
+  <select id="modeloDivisorGaveta" [(ngModel)]="form.divisorGaveta.modelo" class="form-control">
+  <option *ngFor="let item of listasOpcoes.modelosDivisorGaveta; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+    <label for="acabamentoDivisorGaveta">Acabamento:</label>
+    <select id="acabamentoDivisorGaveta" [(ngModel)]="form.divisorGaveta.acabamento" class="form-control">
+    <option *ngFor="let item of listasOpcoes.acabamentosDivisorGaveta; trackBy: trackByFn" [value]="item">{{ item }}</option>
+    </select>
+</div>
+
+<div class="form-group col">
+  <label for="quantidadeDivisorGaveta">Quantidade:</label>
+  <input type="number" id="quantidadeDivisorGaveta" [(ngModel)]="form.divisorGaveta.quantidade" class="form-control">
+</div>
+
+<div class="form-group col">
+  <label for="fornecedorDivisorGaveta">Quem irá fornecer:</label>
+  <select id="fornecedorDivisorGaveta" [(ngModel)]="form.divisorGaveta.fornecedor" class="form-control">
+  <option *ngFor="let item of listasOpcoes.fornecedoresDivisorGaveta; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<h3>Divisor de Talher</h3>
+  <div class="row">
+  <div class="form-group col">
+  <label for="modeloDivisorTalher">Modelo:</label>
+  <select id="modeloDivisorTalher" [(ngModel)]="form.divisorTalher.modelo" class="form-control">
+  <option *ngFor="let item of listasOpcoes.modelosDivisorTalher; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="acabamentoDivisorTalher">Acabamento:</label>
+  <select id="acabamentoDivisorTalher" [(ngModel)]="form.divisorTalher.acabamento" class="form-control">
+  <option *ngFor="let item of listasOpcoes.acabamentosDivisorTalher; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="quantidadeDivisorTalher">Quantidade:</label>
+	 <input type="number" id="quantidadeDivisorTalher" [(ngModel)]="form.divisorTalher.quantidade" class="form-control">
+</div>
+
+	<div class="form-group col">
+    <label for="fornecedorDivisorTalher">Quem irá fornecer:</label>
+    <select id="fornecedorDivisorTalher" [(ngModel)]="form.divisorTalher.fornecedor" class="form-control">
+		<option *ngFor="let item of listasOpcoes.fornecedoresDivisorTalher; trackBy: trackByFn" [value]="item">{{ item }}</option>
+   </select>
+	</div>
+
+<h3>Tábua de Passar</h3>
+   <div class="row">
+   <div class="form-group col">
+   <label for="modeloTabuaPassar">Modelo:</label>
+	 <select id="modeloTabuaPassar" [(ngModel)]="form.tabuaPassar.modelo" class="form-control">
+  <option *ngFor="let item of listasOpcoes.modelosTabuaPassar; trackBy: trackByFn" [value]="item">{{ item }}</option>
+   </select>
+</div>
+
+<div class="form-group col">
+	<label for="acabamentoTabuaPassar">Acabamento:</label>
+  <select id="acabamentoTabuaPassar" [(ngModel)]="form.tabuaPassar.acabamento" class="form-control">
+  <option *ngFor="let item of listasOpcoes.acabamentosTabuaPassar; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+  <label for="quantidadeTabuaPassar">Quantidade:</label>
+	<input type="number" id="quantidadeTabuaPassar" [(ngModel)]="form.tabuaPassar.quantidade" class="form-control">
+</div>
+
+<div class="form-group col">
+    <label for="fornecedorTabuaPassar">Quem irá fornecer:</label>
+    <select id="fornecedorTabuaPassar" [(ngModel)]="form.tabuaPassar.fornecedor" class="form-control">
+		<option *ngFor="let item of listasOpcoes.fornecedorTabuaPassar; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<h3>Divisor Acrílico</h3>
+  <div class="row">
+    <div class="form-group col">
+    <label for="modeloDivisorAcrilico">Modelo:</label>
+    <select id="modeloDivisorAcrilico" [(ngModel)]="form.divisorAcrilico.modelo" class="form-control">
+    <option *ngFor="let item of listasOpcoes.modelosDivisorAcrilico; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+    <label for="acabamentoDivisorAcrilico">Acabamento:</label>
+    <select id="acabamentoDivisorAcrilico" [(ngModel)]="form.divisorAcrilico.acabamento" class="form-control">
+    <option *ngFor="let item of listasOpcoes.acabamentosDivisorAcrilico; trackBy: trackByFn" [value]="item">{{ item }}</option>
+  </select>
+</div>
+
+<div class="form-group col">
+    <label for="quantidadeDivisorAcrilico">Quantidade:</label>
+    <input type="number" id="quantidadeDivisorAcrilico" [(ngModel)]="form.divisorAcrilico.quantidade" class="form-control">
+</div>
+
+<div class="form-group col">
+    <label for="fornecedorDivisorAcrilico">Quem irá fornecer:</label>
+    <select id="fornecedorDivisorAcrilico" [(ngModel)]="form.divisorAcrilico.fornecedor" class="form-control">
+    <option *ngFor="let item of listasOpcoes.fornecedoresDivisorAcrilico; trackBy: trackByFn" [value]="item">{{ item }}</option>
+    </select>
+ 	</div>
+</div>
+
+<h3>Pedra</h3>
+<div class="row">
+  <div class="form-group col">
+    <label for="existentePedra">Existente:</label>
+    <select id="existentePedra" [(ngModel)]="form.pedra.existente" class="form-control">
+    <option value="Sim">Sim</option>
+    <option value="Não">Não</option>
+   </select>
+	</div>
+</div>
+
+    <div class="form-group col">
+    <label for="espessuraPedra">Espessura:</label>
+    <input type="number" id="espessuraPedra" [(ngModel)]="form.pedra.espessura" class="form-control">
+  </div>
+
+    <div class="form-group col">
+    <label for="alturaFinalPedra">Altura Final:</label>
+    <input type="number" id="alturaFinalPedra" [(ngModel)]="form.pedra.altura" class="form-control">
+  </div>
+
+  <div class="form-group col">
+          <label for="responsavelPedra">Responsável:</label>
+         <input type="text" id="responsavelPedra" [(ngModel)]="form.pedra.responsavel" class="form-control">
+      </div>
+  </div>
+
+     <h3>Box</h3>
+    <div class="row">
+        <div class="form-group col">
+       <label for="margemBox">Margem:</label>
+      <input type="number" id="margemBox" [(ngModel)]="form.box.margem" class="form-control">
+    </div>
+
+    <div class="form-group col">
+    <label for="alturaFinalBox">Altura Final:</label>
+    <input type="number" id="alturaFinalBox" [(ngModel)]="form.box.alturaFinal" class="form-control">
+    </div>
+  </div>
+
+
+    <h3>Rodapé</h3>
+    <div class="row">
+    <div class="form-group col">
+      <label for="modeloRodape">Modelo do Rodapé</label>
+      <select id="modeloRodape" [(ngModel)]="form.rodape.modelo" class="form-control">
+      <option *ngFor="let item of listasOpcoes.modelosRodape" [value]="item">{{ item }}</option>
+      </select>
+    </div>
+
+    <div class="form-group col">
+          <label for="recebeRodape">Recebe Acabamento?</label>
+          <select id="recebeRodape" [(ngModel)]="form.rodape.recebe" class="form-control">
+        <option *ngFor="let item of listasOpcoes.recebeRodape" [value]="item">{{ item }}</option>
+      </select>
+    </div>
+
+    <div class="form-group col">
+      <label for="alturaRodape">Altura do Rodapé</label>
+      <input type="text" id="alturaRodape" [(ngModel)]="form.rodape.altura" class="form-control" placeholder="Digite a altura" />
+    </div>
+
+    <div class="form-group col">
+      <label for="afastadoRodape">Afastamento do Rodapé</label>
+      <input type="text" id="afastadoRodape" [(ngModel)]="form.rodape.afastado" class="form-control" placeholder="Digite o afastamento" />
+    </div>
+
+     <h3>Roda Teto</h3>
     <div class="row">
       <div class="form-group col">
-        <label for="nomeCliente">Nome do Cliente:</label>
-        <input type="text" id="nomeCliente" [(ngModel)]="form.nomeCliente" class="form-control">
-      </div>
+        <label for="modeloRodaTeto">Modelo da Roda Teto</label>
+         <select id="modeloRodaTeto" [(ngModel)]="form.rodaTeto.modelo" class="form-control">
+      <option *ngFor="let item of listasOpcoes.modelosRodaTeto" [value]="item">{{ item }}</option>
+    </select>
+  </div>
 
       <div class="form-group col">
-
-        <label for="vendedor">Vendedor:</label>
-        <input type="text" id="vendedor" [(ngModel)]="form.vendedor" class="form-control">
-      </div>
-
-      <div class="form-group col">
-
-        <label for="numeroPedido">Número do Pedido:</label>
-        <input type="text" id="numeroPedido" [(ngModel)]="form.numeroPedido" class="form-control">
-      </div>
-
-      <!-- Seção: Cores do MDF -->
-      <h3>Cores do MDF</h3>
-      <div class="row">
-        <div class="form-group col">
-          <label for="corMDF1">Cor MDF 1:</label>
-          <select id="corMDF1" [(ngModel)]="form.coresProjeto.cor1" class="form-control">
-            <option *ngFor="let cor of listasOpcoes.coresMDF; trackBy: trackByFn" [value]="cor">
-              {{ cor }}
-            </option>
-          </select>
-        </div>
-
-        <div class="form-group col">
-          <label for="corMDF2">Cor MDF 2:</label>
-          <select id="corMDF2" [(ngModel)]="form.coresProjeto.cor2" class="form-control">
-            <option *ngFor="let cor of listasOpcoes.coresMDF; trackBy: trackByFn" [value]="cor">
-              {{ cor }}
-            </option>
-          </select>
-        </div>
-
-        <div class="form-group col">
-          <label for="corMDF3">Cor MDF 3:</label>
-          <select id="corMDF3" [(ngModel)]="form.coresProjeto.cor3" class="form-control">
-            <option *ngFor="let cor of listasOpcoes.coresMDF; trackBy: trackByFn" [value]="cor">
-              {{ cor }}
-            </option>
-          </select>
-        </div>
-
-        <!-- Seção: Puxador Superior -->
-        <h3>Puxador Superior</h3>
-        <div class="row">
-          <div class="form-group col">
-            <label for="modeloPuxadorSuperior">Modelo:</label>
-            <select id="modeloPuxadorSuperior" [(ngModel)]="form.puxadorSuperior.modelo" class="form-control">
-              <option *ngFor="let item of listasOpcoes.modelosPuxadorSuperior; trackBy: trackByFn" [value]="item">
-                {{ item }}
-              </option>
-            </select>
-          </div>
+        <label for="alturaRodaTeto">Altura</label>
+        <input type="text" id="alturaRodaTeto" [(ngModel)]="form.rodaTeto.altura" class="form-control" placeholder="Digite a altura" />
+  </div>
 
           <div class="form-group col">
-            <label for="acabamentoPuxadorSuperior">Acabamento:</label>
-            <select id="acabamentoPuxadorSuperior" [(ngModel)]="form.puxadorSuperior.acabamento" class="form-control">
-              <option *ngFor="let item of listasOpcoes.acabamentosPuxadorSuperior; trackBy: trackByFn" [value]="item">
-                {{ item }}
-              </option>
-            </select>
-          </div>
-
-          <div class="form-group col">
-            <label for="fornecedorPuxadorSuperior">Fornecedor:</label>
-            <select id="fornecedorPuxadorSuperior" [(ngModel)]="form.puxadorSuperior.fornecedor" class="form-control">
-              <option *ngFor="let item of listasOpcoes.fornecedoresPuxadorSuperior; trackBy: trackByFn" [value]="item">
-                {{ item }}
-              </option>
-            </select>
-          </div>
-
-          <div class="form-group col">
-            <label for="quantidadePuxadorSuperior">Quantidade:</label>
-            <input type="number" id="quantidadePuxadorSuperior" [(ngModel)]="form.puxadorSuperior.quantidade"
-              class="form-control" min="0">
-          </div>
-
-          <!-- Seção: Puxador Inferior -->
-          <h3>Puxador Inferior</h3>
-          <div class="row">
-            <div class="form-group col">
-              <label for="modeloPuxadorInferior">Modelo:</label>
-              <select id="modeloPuxadorInferior" [(ngModel)]="form.puxadorInferior.modelo" class="form-control">
-                <option *ngFor="let item of listasOpcoes.modelosPuxadorInferior; trackBy: trackByFn" [value]="item">
-                  {{ item }}
-                </option>
-              </select>
-            </div>
-
-            <div class="form-group col">
-              <label for="acabamentoPuxadorInferior">Acabamento:</label>
-              <select id="acabamentoPuxadorInferior" [(ngModel)]="form.puxadorInferior.acabamento" class="form-control">
-                <option *ngFor="let item of listasOpcoes.acabamentosPuxadorInferior; trackBy: trackByFn" [value]="item">
-                  {{ item }}
-                </option>
-              </select>
-            </div>
-
-            <div class="form-group col">
-              <label for="fornecedorPuxadorInferior">Fornecedor:</label>
-              <select id="fornecedorPuxadorInferior" [(ngModel)]="form.puxadorInferior.fornecedor" class="form-control">
-                <option *ngFor="let item of listasOpcoes.fornecedoresPuxadorInferior; trackBy: trackByFn"
-                  [value]="item">
-                  {{ item }}
-                </option>
-              </select>
-            </div>
-
-            <div class="form-group col">
-              <label for="quantidadePuxadorInferior">Quantidade:</label>
-              <input type="number" id="quantidadePuxadorInferior" [(ngModel)]="form.puxadorInferior.quantidade"
-                class="form-control" min="0">
-            </div>
-
-            <h3>Porta de Perfil</h3>
-            <div class="row">
-              <div class="form-group col">
-                <label for="modeloPerfil">Modelo do Perfil:</label>
-                <select id="modeloPerfil" [(ngModel)]="form.portaPerfil.modeloPerfil" class="form-control">
-                  <option *ngFor="let item of listasOpcoes.modelosPerfil; trackBy: trackByFn" [value]="item">{{ item }}
-                  </option>
-                </select>
-              </div>
-
-              <div class="form-group col">
-                <label for="modeloPuxadorPerfil">Modelo do Puxador:</label>
-                <select id="modeloPuxadorPerfil" [(ngModel)]="form.portaPerfil.modeloPuxador" class="form-control">
-                  <option *ngFor="let item of listasOpcoes.modelosPuxadorPerfil; trackBy: trackByFn" [value]="item">{{
-                    item }}</option>
-                </select>
-              </div>
-
-              <div class="form-group col">
-                <label for="corPerfil">Cor do Perfil:</label>
-                <select id="corPerfil" [(ngModel)]="form.portaPerfil.corPerfil" class="form-control">
-                  <option *ngFor="let item of listasOpcoes.coresPerfil; trackBy: trackByFn" [value]="item">{{ item }}
-                  </option>
-                </select>
-              </div>
-
-              <div class="form-group col">
-                <label for="corpoPorta">Corpo da Porta:</label>
-                <select id="corpoPorta" [(ngModel)]="form.portaPerfil.corpoPorta" class="form-control">
-                  <option *ngFor="let item of listasOpcoes.corposPorta; trackBy: trackByFn" [value]="item">{{ item }}
-                  </option>
-                </select>
-              </div>
-
-              <div class="form-group col">
-                <label for="acabamentoCorpo">Acabamento do Corpo:</label>
-                <select id="acabamentoCorpo" [(ngModel)]="form.portaPerfil.acabamentoCorpo" class="form-control">
-                  <option *ngFor="let item of listasOpcoes.acabamentosCorpo; trackBy: trackByFn" [value]="item">{{ item
-                    }}</option>
-                </select>
-              </div>
-
-              <h3>Vidro</h3>
-
-              <div class="row">
-                <div class="form-group col">
-                  <label for="espessuraVidro">Espessura do Vidro:</label>
-                  <select id="espessuraVidro" [(ngModel)]="form.vidro.espessura" class="form-control">
-                    <option *ngFor="let item of listasOpcoes.espessurasVidro; trackBy: trackByFn" [value]="item">{{ item
-                      }}</option>
-                  </select>
-                </div>
-
-                <div class="form-group col">
-                  <label for="acabamentoVidro">Acabamento do Vidro:</label>
-                  <select id="acabamentoVidro" [(ngModel)]="form.vidro.acabamento" class="form-control">
-                    <option *ngFor="let item of listasOpcoes.acabamentosVidro; trackBy: trackByFn" [value]="item">{{
-                      item }}</option>
-                  </select>
-                </div>
-
-                <div class="form-group col">
-                  <label for="fornecedorVidro">Fornecedor do Vidro:</label>
-                  <select id="fornecedorVidro" [(ngModel)]="form.vidro.fornecedor" class="form-control">
-                    <option *ngFor="let item of listasOpcoes.fornecedoresVidro; trackBy: trackByFn" [value]="item">{{
-                      item }}</option>
-                  </select>
-                </div>
-
-                <h3>Espelho</h3>
-
-                <div class="row">
-                  <div class="form-group col">
-                    <label for="espessuraEspelho">Espessura do Espelho:</label>
-                    <select id="espessuraEspelho" [(ngModel)]="form.espelho.espessura" class="form-control">
-                      <option *ngFor="let item of listasOpcoes.espessurasEspelho; trackBy: trackByFn" [value]="item">{{
-                        item }}</option>
-                    </select>
-                  </div>
-
-                  <div class="form-group col">
-                    <label for="acabamentoEspelho">Acabamento do Espelho:</label>
-                    <select id="acabamentoEspelho" [(ngModel)]="form.espelho.acabamento" class="form-control">
-                      <option *ngFor="let item of listasOpcoes.acabamentosEspelho; trackBy: trackByFn" [value]="item">{{
-                        item }}</option>
-                    </select>
-                  </div>
-
-                  <div class="form-group col">
-                    <label for="fornecedorEspelho">Fornecedor do Espelho:</label>
-                    <select id="fornecedorEspelho" [(ngModel)]="form.espelho.fornecedor" class="form-control">
-                      <option *ngFor="let item of listasOpcoes.fornecedoresEspelho; trackBy: trackByFn" [value]="item">
-                        {{ item }}</option>
-                    </select>
-                  </div>
-
-                  <h3>Porta Deslizante</h3>
-
-                  <div class="row">
-                    <div class="form-group col">
-                      <label for="nomeSistemaPortaDeslizante">Nome do Sistema:</label>
-                      <select id="nomeSistemaPortaDeslizante" [(ngModel)]="form.sistemaPortaDeslizante.nomeSistema"
-                        class="form-control">
-                        <option *ngFor="let item of listasOpcoes.nomesSistemasPortaDeslizante; trackBy: trackByFn"
-                          [value]="item">{{ item }}</option>
-                      </select>
-                    </div>
-
-                    <div class="form-group col">
-                      <label for="corpoPortaDeslizante">Corpo da Porta:</label>
-                      <select id="corpoPortaDeslizante" [(ngModel)]="form.sistemaPortaDeslizante.corpoPorta"
-                        class="form-control">
-                        <option *ngFor="let item of listasOpcoes.corposPortaDeslizante; trackBy: trackByFn"
-                          [value]="item">{{ item }}</option>
-                      </select>
-                    </div>
-
-                    <div class="form-group col">
-                      <label for="acabamentoPortaDeslizante">Acabamento do Corpo:</label>
-                      <select id="acabamentoPortaDeslizante" [(ngModel)]="form.sistemaPortaDeslizante.acabamentoCorpo"
-                        class="form-control">
-                        <option *ngFor="let item of listasOpcoes.acabamentosPortaDeslizante; trackBy: trackByFn"
-                          [value]="item">{{ item }}</option>
-                      </select>
-                    </div>
-
-                    <div class="form-group col">
-                      <label for="quantidadePortaDeslizante">Quantidade:</label>
-                      <input type="number" id="quantidadePortaDeslizante"
-                        [(ngModel)]="form.sistemaPortaDeslizante.quantidade" class="form-control">
-                    </div>
-
-                    <div class="form-group col">
-                      <label for="fechaduraPortaDeslizante">Fechadura:</label>
-                      <select id="fechaduraPortaDeslizante" [(ngModel)]="form.sistemaPortaDeslizante.fechadura"
-                        class="form-control">
-                        <option *ngFor="let item of listasOpcoes.fechadurasPortaDeslizante; trackBy: trackByFn"
-                          [value]="item">{{ item }}</option>
-                      </select>
-                    </div>
-
-                    <h3>Porta de Passagem</h3>
-
-                    <div class="row">
-                      <div class="form-group col">
-                        <label for="nomeSistemaPortaPassagem">Nome do Sistema:</label>
-                        <select id="nomeSistemaPortaPassagem" [(ngModel)]="form.portaPassagem.nomeSistema"
-                          class="form-control">
-                          <option *ngFor="let item of listasOpcoes.sistemasPortaPassagem; trackBy: trackByFn"
-                            [value]="item">{{ item }}</option>
-                        </select>
-                      </div>
-
-                      <div class="form-group col">
-                        <label for="corpoPortaPassagem">Corpo da Porta:</label>
-                        <select id="corpoPortaPassagem" [(ngModel)]="form.portaPassagem.corpoPorta"
-                          class="form-control">
-                          <option *ngFor="let item of listasOpcoes.corposPortaPassagem; trackBy: trackByFn"
-                            [value]="item">{{ item }}</option>
-                        </select>
-                      </div>
-
-                      <div class="form-group col">
-                        <label for="acabamentoPortaPassagem">Acabamento do Corpo:</label>
-                        <select id="acabamentoPortaPassagem" [(ngModel)]="form.portaPassagem.acabamentoCorpo"
-                          class="form-control">
-                          <option *ngFor="let item of listasOpcoes.acabamentosPortaPassagem; trackBy: trackByFn"
-                            [value]="item">{{ item }}</option>
-                        </select>
-                      </div>
-
-                      <div class="form-group col">
-                        <label for="fechaduraPortaPassagem">Fechadura:</label>
-                        <select id="fechaduraPortaPassagem" [(ngModel)]="form.portaPassagem.fechadura"
-                          class="form-control">
-                          <option *ngFor="let item of listasOpcoes.fechadurasPortaPassagem; trackBy: trackByFn"
-                            [value]="item">{{ item }}</option>
-                        </select>
-                      </div>
-
-                      <div class="form-group col">
-                        <label for="quantidadePortaPassagem">Quantidade:</label>
-                        <input type="number" id="quantidadePortaPassagem" [(ngModel)]="form.portaPassagem.quantidade"
-                          class="form-control">
-                      </div>
-
-                      <h3>Estofaria</h3>
-                      <div class="row">
-                        <div class="form-group col">
-                          <label for="modeloEstofaria">Modelo:</label>
-                          <select id="modeloEstofaria" [(ngModel)]="form.estofaria.modelo" class="form-control">
-                            <option *ngFor="let item of listasOpcoes.modelosEstofaria; trackBy: trackByFn"
-                              [value]="item">{{ item }}</option>
-                          </select>
-                        </div>
-
-                        <div class="form-group col">
-                          <label for="acabamentoEstofaria">Acabamento:</label>
-                          <select id="acabamentoEstofaria" [(ngModel)]="form.estofaria.acabamento" class="form-control">
-                            <option *ngFor="let item of listasOpcoes.acabamentosEstofaria; trackBy: trackByFn"
-                              [value]="item">{{ item }}</option>
-                          </select>
-                        </div>
-
-                        <div class="form-group col">
-                          <label for="fornecedorEstofaria">Fornecedor:</label>
-                          <select id="fornecedorEstofaria" [(ngModel)]="form.estofaria.fornecedor" class="form-control">
-                            <option *ngFor="let item of listasOpcoes.fornecedoresEstofaria; trackBy: trackByFn"
-                              [value]="item">{{ item }}</option>
-                          </select>
-                        </div>
-
-                        <div class="form-group col">
-                          <label for="instaladorEstofaria">Quem irá instalar:</label>
-                          <select id="instaladorEstofaria" [(ngModel)]="form.estofaria.instalador" class="form-control">
-                            <option *ngFor="let item of listasOpcoes.instaladoresEstofaria; trackBy: trackByFn"
-                              [value]="item">{{ item }}</option>
-                          </select>
-                        </div>
-
-                        <h3>Serralheria</h3>
-
-                        <div class="row">
-                          <div class="form-group col">
-                            <label for="modeloSerralheria">Modelo:</label>
-                            <select id="modeloSerralheria" [(ngModel)]="form.serralheria.modelo" class="form-control">
-                              <option *ngFor="let item of listasOpcoes.modelosSerralheria; trackBy: trackByFn"
-                                [value]="item">{{ item }}</option>
-                            </select>
-                          </div>
-
-                          <div class="form-group col">
-                            <label for="acabamentoSerralheria">Acabamento:</label>
-                            <select id="acabamentoSerralheria" [(ngModel)]="form.serralheria.acabamento"
-                              class="form-control">
-                              <option *ngFor="let item of listasOpcoes.acabamentosSerralheria; trackBy: trackByFn"
-                                [value]="item">{{ item }}</option>
-                            </select>
-                          </div>
-
-                          <div class="form-group col">
-                            <label for="fornecedorSerralheria">Fornecedor:</label>
-                            <select id="fornecedorSerralheria" [(ngModel)]="form.serralheria.fornecedor"
-                              class="form-control">
-                              <option *ngFor="let item of listasOpcoes.fornecedoresSerralheria; trackBy: trackByFn"
-                                [value]="item">{{ item }}</option>
-                            </select>
-                          </div>
-
-                          <div class="form-group col">
-                            <label for="instaladorSerralheria">Instalador:</label>
-                            <select id="instaladorSerralheria" [(ngModel)]="form.serralheria.instalador"
-                              class="form-control">
-                              <option *ngFor="let item of listasOpcoes.instaladoresSerralheria; trackBy: trackByFn"
-                                [value]="item">{{ item }}</option>
-                            </select>
-                          </div>
-
-                          <h3>Iluminação</h3>
-
-                          <div class="row">
-                            <div class="form-group col">
-                              <label for="modeloIluminacao">Modelo:</label>
-                              <select id="modeloIluminacao" [(ngModel)]="form.iluminacao.modelo" class="form-control">
-                                <option *ngFor="let item of listasOpcoes.modelosIluminacao; trackBy: trackByFn"
-                                  [value]="item">{{ item }}</option>
-                              </select>
-                            </div>
-
-                            <div class="form-group col">
-                              <label for="temperaturaIluminacao">Temperatura:</label>
-                              <select id="temperaturaIluminacao" [(ngModel)]="form.iluminacao.temperatura"
-                                class="form-control">
-                                <option *ngFor="let item of listasOpcoes.temperaturasIluminacao; trackBy: trackByFn"
-                                  [value]="item">{{ item }}</option>
-                              </select>
-                            </div>
-
-                            <div class="form-group col">
-                              <label for="fornecedorIluminacao">Fornecedor:</label>
-                              <select id="fornecedorIluminacao" [(ngModel)]="form.iluminacao.fornecedor"
-                                class="form-control">
-                                <option *ngFor="let item of listasOpcoes.fornecedoresIluminacao; trackBy: trackByFn"
-                                  [value]="item">{{ item }}</option>
-                              </select>
-                            </div>
-
-                            <h3>Tomada</h3>
-
-                            <div class="row">
-                              <div class="form-group col">
-                                <label for="modeloTomada">Modelo:</label>
-                                <select id="modeloTomada" [(ngModel)]="form.tomada.modelo" class="form-control">
-                                  <option *ngFor="let item of listasOpcoes.modelosTomada; trackBy: trackByFn"
-                                    [value]="item">{{ item }}</option>
-                                </select>
-                              </div>
-
-                              <div class="form-group col">
-                                <label for="acabamentoTomada">Acabamento:</label>
-                                <select id="acabamentoTomada" [(ngModel)]="form.tomada.acabamento" class="form-control">
-                                  <option *ngFor="let item of listasOpcoes.acabamentosTomada; trackBy: trackByFn"
-                                    [value]="item">{{ item }}</option>
-                                </select>
-                              </div>
-
-                              <div class="form-group col">
-                                <label for="quantidadeTomada">Quantidade:</label>
-                                <input type="number" id="quantidadeTomada" [(ngModel)]="form.tomada.quantidade"
-                                  class="form-control">
-                              </div>
-
-                              <div class="form-group col">
-                                <label for="fornecedorTomada">Quem irá fornecer:</label>
-                                <select id="fornecedorTomada" [(ngModel)]="form.tomada.fornecedor" class="form-control">
-                                  <option *ngFor="let item of listasOpcoes.fornecedorTomada; trackBy: trackByFn"
-                                    [value]="item">{{ item }}</option>
-                                </select>
-                              </div>
-
-                              <h3>Interruptor</h3>
-
-                              <div class="row">
-                                <div class="form-group col">
-                                  <label for="modeloInterruptor">Modelo:</label>
-                                  <select id="modeloInterruptor" [(ngModel)]="form.interruptor.modelo"
-                                    class="form-control">
-                                    <option *ngFor="let item of listasOpcoes.modelosInterruptor; trackBy: trackByFn"
-                                      [value]="item">{{ item }}</option>
-                                  </select>
-                                </div>
-
-                                <div class="form-group col">
-                                  <label for="acabamentoInterruptor">Acabamento:</label>
-                                  <select id="acabamentoInterruptor" [(ngModel)]="form.interruptor.acabamento"
-                                    class="form-control">
-                                    <option *ngFor="let item of listasOpcoes.acabamentosInterruptor; trackBy: trackByFn"
-                                      [value]="item">{{ item }}</option>
-                                  </select>
-                                </div>
-
-                                <div class="form-group col">
-                                  <label for="quantidadeInterruptor">Quantidade:</label>
-                                  <input type="number" id="quantidadeInterruptor"
-                                    [(ngModel)]="form.interruptor.quantidade" class="form-control">
-                                </div>
-
-                                <div class="form-group col">
-                                  <label for="fornecedorInterruptor">Quem irá fornecer:</label>
-                                  <select id="fornecedorInterruptor" [(ngModel)]="form.interruptor.fornecedor"
-                                    class="form-control">
-                                    <option
-                                      *ngFor="let item of listasOpcoes.fornecedoresInterruptor; trackBy: trackByFn"
-                                      [value]="item">{{ item }}</option>
-                                  </select>
-                                </div>
-
-                                <h3>Passa Fio</h3>
-
-                                <div class="row">
-                                  <div class="form-group col">
-                                    <label for="modeloPassaFio">Modelo:</label>
-                                    <select id="modeloPassaFio" [(ngModel)]="form.passaFio.modelo" class="form-control">
-                                      <option *ngFor="let item of listasOpcoes.modelosPassaFio; trackBy: trackByFn"
-                                        [value]="item">{{ item }}</option>
-                                    </select>
-                                  </div>
-
-                                  <div class="form-group col">
-                                    <label for="acabamentoPassaFio">Acabamento:</label>
-                                    <select id="acabamentoPassaFio" [(ngModel)]="form.passaFio.acabamento"
-                                      class="form-control">
-                                      <option *ngFor="let item of listasOpcoes.acabamentosPassaFio; trackBy: trackByFn"
-                                        [value]="item">{{ item }}</option>
-                                    </select>
-                                  </div>
-
-                                  <div class="form-group col">
-                                    <label for="quantidadePassaFio">Quantidade:</label>
-                                    <input type="number" id="quantidadePassaFio" [(ngModel)]="form.passaFio.quantidade"
-                                      class="form-control">
-                                  </div>
-
-                                  <div class="form-group col">
-                                    <label for="fornecedorPassaFio">Quem irá fornecer:</label>
-                                    <select id="fornecedorPassaFio" [(ngModel)]="form.passaFio.fornecedor"
-                                      class="form-control">
-                                      <option *ngFor="let item of listasOpcoes.fornecedoresPassaFio; trackBy: trackByFn"
-                                        [value]="item">{{ item }}</option>
-                                    </select>
-                                  </div>
-
-                                  <h3>Porta Tempero</h3>
-
-                                  <div class="row">
-                                    <div class="form-group col">
-                                      <label for="modeloPortaTempero">Modelo:</label>
-                                      <select id="modeloPortaTempero" [(ngModel)]="form.portaTempero.modelo"
-                                        class="form-control">
-                                        <option
-                                          *ngFor="let item of listasOpcoes.modelosPortaTempero; trackBy: trackByFn"
-                                          [value]="item">{{ item }}</option>
-                                      </select>
-                                    </div>
-
-                                    <div class="form-group col">
-                                      <label for="acabamentoPortaTempero">Acabamento:</label>
-                                      <select id="acabamentoPortaTempero" [(ngModel)]="form.portaTempero.acabamento"
-                                        class="form-control">
-                                        <option
-                                          *ngFor="let item of listasOpcoes.acabamentosPortaTempero; trackBy: trackByFn"
-                                          [value]="item">{{ item }}</option>
-                                      </select>
-                                    </div>
-
-                                    <div class="form-group col">
-                                      <label for="quantidadePortaTempero">Quantidade:</label>
-                                      <input type="number" id="quantidadePortaTempero"
-                                        [(ngModel)]="form.portaTempero.quantidade" class="form-control">
-                                    </div>
-
-                                    <div class="form-group col">
-                                      <label for="fornecedorPortaTempero">Quem irá fornecer:</label>
-                                      <select id="fornecedorPortaTempero" [(ngModel)]="form.portaTempero.fornecedor"
-                                        class="form-control">
-                                        <option
-                                          *ngFor="let item of listasOpcoes.fornecedoresPortaTempero; trackBy: trackByFn"
-                                          [value]="item">{{ item }}</option>
-                                      </select>
-                                    </div>
-
-                                    <h3>Lixeira</h3>
-
-                                    <div class="row">
-                                      <div class="form-group col">
-                                        <label for="modeloLixeira">Modelo:</label>
-                                        <select id="modeloLixeira" [(ngModel)]="form.lixeira.modelo"
-                                          class="form-control">
-                                          <option *ngFor="let item of listasOpcoes.modelosLixeira; trackBy: trackByFn"
-                                            [value]="item">{{ item }}</option>
-                                        </select>
-                                      </div>
-
-                                      <div class="form-group col">
-                                        <label for="acabamentoLixeira">Acabamento:</label>
-                                        <select id="acabamentoLixeira" [(ngModel)]="form.lixeira.acabamento"
-                                          class="form-control">
-                                          <option
-                                            *ngFor="let item of listasOpcoes.acabamentosLixeira; trackBy: trackByFn"
-                                            [value]="item">{{ item }}</option>
-                                        </select>
-                                      </div>
-
-                                      <div class="form-group col">
-                                        <label for="quantidadeLixeira">Quantidade:</label>
-                                        <input type="number" id="quantidadeLixeira"
-                                          [(ngModel)]="form.lixeira.quantidade" class="form-control">
-                                      </div>
-
-                                      <div class="form-group col">
-                                        <label for="fornecedorLixeira">Quem irá fornecer:</label>
-                                        <select id="fornecedorLixeira" [(ngModel)]="form.lixeira.fornecedor"
-                                          class="form-control">
-                                          <option
-                                            *ngFor="let item of listasOpcoes.fornecedoresLixeira; trackBy: trackByFn"
-                                            [value]="item">{{ item }}</option>
-                                        </select>
-                                      </div>
-
-                                      <h3>Tulha</h3>
-
-                                      <div class="row">
-                                        <div class="form-group col">
-                                          <label for="modeloTulha">Modelo:</label>
-                                          <select id="modeloTulha" [(ngModel)]="form.tulha.modelo" class="form-control">
-                                            <option *ngFor="let item of listasOpcoes.modelosTulha; trackBy: trackByFn"
-                                              [value]="item">{{ item }}</option>
-                                          </select>
-                                        </div>
-
-                                        <div class="form-group col">
-                                          <label for="acabamentoTulha">Acabamento:</label>
-                                          <select id="acabamentoTulha" [(ngModel)]="form.tulha.acabamento"
-                                            class="form-control">
-                                            <option
-                                              *ngFor="let item of listasOpcoes.acabamentosTulha; trackBy: trackByFn"
-                                              [value]="item">{{ item }}</option>
-                                          </select>
-                                        </div>
-
-                                        <div class="form-group col">
-                                          <label for="quantidadeTulha">Quantidade:</label>
-                                          <input type="number" id="quantidadeTulha" [(ngModel)]="form.tulha.quantidade"
-                                            class="form-control">
-                                        </div>
-
-                                        <div class="form-group col">
-                                          <label for="fornecedorTulha">Quem irá fornecer:</label>
-                                          <select id="fornecedorTulha" [(ngModel)]="form.tulha.fornecedor"
-                                            class="form-control">
-                                            <option
-                                              *ngFor="let item of listasOpcoes.fornecedoresTulha; trackBy: trackByFn"
-                                              [value]="item">{{ item }}</option>
-                                          </select>
-                                        </div>
-
-                                        <h3>Divisor de Gaveta</h3>
-
-                                        <div class="row">
-                                          <div class="form-group col">
-                                            <label for="modeloDivisorGaveta">Modelo:</label>
-                                            <select id="modeloDivisorGaveta" [(ngModel)]="form.divisorGaveta.modelo"
-                                              class="form-control">
-                                              <option
-                                                *ngFor="let item of listasOpcoes.modelosDivisorGaveta; trackBy: trackByFn"
-                                                [value]="item">{{ item }}</option>
-                                            </select>
-                                          </div>
-
-                                          <div class="form-group col">
-                                            <label for="acabamentoDivisorGaveta">Acabamento:</label>
-                                            <select id="acabamentoDivisorGaveta"
-                                              [(ngModel)]="form.divisorGaveta.acabamento" class="form-control">
-                                              <option
-                                                *ngFor="let item of listasOpcoes.acabamentosDivisorGaveta; trackBy: trackByFn"
-                                                [value]="item">{{ item }}</option>
-                                            </select>
-                                          </div>
-
-                                          <div class="form-group col">
-                                            <label for="quantidadeDivisorGaveta">Quantidade:</label>
-                                            <input type="number" id="quantidadeDivisorGaveta"
-                                              [(ngModel)]="form.divisorGaveta.quantidade" class="form-control">
-                                          </div>
-
-                                          <div class="form-group col">
-                                            <label for="fornecedorDivisorGaveta">Quem irá fornecer:</label>
-                                            <select id="fornecedorDivisorGaveta"
-                                              [(ngModel)]="form.divisorGaveta.fornecedor" class="form-control">
-                                              <option
-                                                *ngFor="let item of listasOpcoes.fornecedoresDivisorGaveta; trackBy: trackByFn"
-                                                [value]="item">{{ item }}</option>
-                                            </select>
-                                          </div>
-
-                                          <h3>Divisor de Talher</h3>
-
-                                          <div class="row">
-                                            <div class="form-group col">
-                                              <label for="modeloDivisorTalher">Modelo:</label>
-                                              <select id="modeloDivisorTalher" [(ngModel)]="form.divisorTalher.modelo"
-                                                class="form-control">
-                                                <option
-                                                  *ngFor="let item of listasOpcoes.modelosDivisorTalher; trackBy: trackByFn"
-                                                  [value]="item">{{ item }}</option>
-                                              </select>
-                                            </div>
-
-                                            <div class="form-group col">
-                                              <label for="acabamentoDivisorTalher">Acabamento:</label>
-                                              <select id="acabamentoDivisorTalher"
-                                                [(ngModel)]="form.divisorTalher.acabamento" class="form-control">
-                                                <option
-                                                  *ngFor="let item of listasOpcoes.acabamentosDivisorTalher; trackBy: trackByFn"
-                                                  [value]="item">{{ item }}</option>
-                                              </select>
-                                            </div>
-
-                                            <div class="form-group col">
-                                              <label for="quantidadeDivisorTalher">Quantidade:</label>
-                                              <input type="number" id="quantidadeDivisorTalher"
-                                                [(ngModel)]="form.divisorTalher.quantidade" class="form-control">
-                                            </div>
-
-                                            <div class="form-group col">
-                                              <label for="fornecedorDivisorTalher">Quem irá fornecer:</label>
-                                              <select id="fornecedorDivisorTalher"
-                                                [(ngModel)]="form.divisorTalher.fornecedor" class="form-control">
-                                                <option
-                                                  *ngFor="let item of listasOpcoes.fornecedoresDivisorTalher; trackBy: trackByFn"
-                                                  [value]="item">{{ item }}</option>
-                                              </select>
-                                            </div>
-
-                                            <h3>Tábua de Passar</h3>
-
-                                            <div class="row">
-                                              <div class="form-group col">
-                                                <label for="modeloTabuaPassar">Modelo:</label>
-                                                <select id="modeloTabuaPassar" [(ngModel)]="form.tabuaPassar.modelo"
-                                                  class="form-control">
-                                                  <option
-                                                    *ngFor="let item of listasOpcoes.modelosTabuaPassar; trackBy: trackByFn"
-                                                    [value]="item">{{ item }}</option>
-                                                </select>
-                                              </div>
-
-                                              <div class="form-group col">
-                                                <label for="acabamentoTabuaPassar">Acabamento:</label>
-                                                <select id="acabamentoTabuaPassar"
-                                                  [(ngModel)]="form.tabuaPassar.acabamento" class="form-control">
-                                                  <option
-                                                    *ngFor="let item of listasOpcoes.acabamentosTabuaPassar; trackBy: trackByFn"
-                                                    [value]="item">{{ item }}</option>
-                                                </select>
-                                              </div>
-
-                                              <div class="form-group col">
-                                                <label for="quantidadeTabuaPassar">Quantidade:</label>
-                                                <input type="number" id="quantidadeTabuaPassar"
-                                                  [(ngModel)]="form.tabuaPassar.quantidade" class="form-control">
-                                              </div>
-
-                                              <div class="form-group col">
-                                                <label for="fornecedorTabuaPassar">Quem irá fornecer:</label>
-                                                <select id="fornecedorTabuaPassar"
-                                                  [(ngModel)]="form.tabuaPassar.fornecedor" class="form-control">
-                                                  <option
-                                                    *ngFor="let item of listasOpcoes.fornecedorTabuaPassar; trackBy: trackByFn"
-                                                    [value]="item">{{ item }}</option>
-                                                </select>
-                                              </div>
-
-                                              <h3>Divisor Acrílico</h3>
-
-                                              <div class="row">
-                                                <div class="form-group col">
-                                                  <label for="modeloDivisorAcrilico">Modelo:</label>
-                                                  <select id="modeloDivisorAcrilico"
-                                                    [(ngModel)]="form.divisorAcrilico.modelo" class="form-control">
-                                                    <option
-                                                      *ngFor="let item of listasOpcoes.modelosDivisorAcrilico; trackBy: trackByFn"
-                                                      [value]="item">{{ item }}</option>
-                                                  </select>
-                                                </div>
-
-                                                <div class="form-group col">
-                                                  <label for="acabamentoDivisorAcrilico">Acabamento:</label>
-                                                  <select id="acabamentoDivisorAcrilico"
-                                                    [(ngModel)]="form.divisorAcrilico.acabamento" class="form-control">
-                                                    <option
-                                                      *ngFor="let item of listasOpcoes.acabamentosDivisorAcrilico; trackBy: trackByFn"
-                                                      [value]="item">{{ item }}</option>
-                                                  </select>
-                                                </div>
-
-                                                <div class="form-group col">
-                                                  <label for="quantidadeDivisorAcrilico">Quantidade:</label>
-                                                  <input type="number" id="quantidadeDivisorAcrilico"
-                                                    [(ngModel)]="form.divisorAcrilico.quantidade" class="form-control">
-                                                </div>
-
-                                                <div class="form-group col">
-                                                  <label for="fornecedorDivisorAcrilico">Quem irá fornecer:</label>
-                                                  <select id="fornecedorDivisorAcrilico"
-                                                    [(ngModel)]="form.divisorAcrilico.fornecedor" class="form-control">
-                                                    <option
-                                                      *ngFor="let item of listasOpcoes.fornecedoresDivisorAcrilico; trackBy: trackByFn"
-                                                      [value]="item">{{ item }}</option>
-                                                  </select>
-                                                </div>
-
-                                                <h3>Pedra</h3>
-
-                                                <div class="row">
-                                                  <div class="form-group col">
-                                                    <label for="existentePedra">Existente:</label>
-                                                    <select id="existentePedra" [(ngModel)]="form.pedra.existente"
-                                                      class="form-control">
-                                                      <option value="Sim">Sim</option>
-                                                      <option value="Não">Não</option>
-                                                    </select>
-                                                  </div>
-
-                                                  <div class="form-group col">
-                                                    <label for="espessuraPedra">Espessura:</label>
-                                                    <input type="number" id="espessuraPedra"
-                                                      [(ngModel)]="form.pedra.espessura" class="form-control">
-                                                  </div>
-
-                                                  <div class="form-group col">
-                                                    <label for="alturaFinalPedra">Altura Final:</label>
-                                                    <input type="number" id="alturaFinalPedra"
-                                                      [(ngModel)]="form.pedra.altura" class="form-control">
-                                                  </div>
-
-                                                  <div class="form-group col">
-                                                    <label for="responsavelPedra">Responsável:</label>
-                                                    <input type="text" id="responsavelPedra"
-                                                      [(ngModel)]="form.pedra.responsavel" class="form-control">
-                                                  </div>
-
-                                                  <h3>Box</h3>
-
-                                                  <div class="row">
-                                                    <div class="form-group col">
-                                                      <label for="margemBox">Margem:</label>
-                                                      <input type="number" id="margemBox" [(ngModel)]="form.box.margem"
-                                                        class="form-control">
-                                                    </div>
-
-                                                    <div class="form-group col">
-                                                      <label for="alturaFinalBox">Altura Final:</label>
-                                                      <input type="number" id="alturaFinalBox"
-                                                        [(ngModel)]="form.box.alturaFinal" class="form-control">
-                                                    </div>
-
-                                                    <h3>Rodapé</h3>
-                                                    <div class="row">
-                                                      <div class="form-group col">
-                                                        <label for="modeloRodape">Modelo do Rodapé</label>
-                                                        <select id="modeloRodape" [(ngModel)]="form.rodape.modelo"
-                                                          class="form-control">
-                                                          <option *ngFor="let item of listasOpcoes.modelosRodape"
-                                                            [value]="item">{{ item }}</option>
-                                                        </select>
-                                                      </div>
-
-                                                      <div class="form-group col">
-                                                        <label for="recebeRodape">Recebe Acabamento?</label>
-                                                        <select id="recebeRodape" [(ngModel)]="form.rodape.recebe"
-                                                          class="form-control">
-                                                          <option *ngFor="let item of listasOpcoes.recebeRodape"
-                                                            [value]="item">{{ item }}</option>
-                                                        </select>
-                                                      </div>
-
-                                                      <div class="form-group col">
-                                                        <label for="alturaRodape">Altura do Rodapé</label>
-                                                        <input type="text" id="alturaRodape"
-                                                          [(ngModel)]="form.rodape.altura" class="form-control"
-                                                          placeholder="Digite a altura" />
-                                                      </div>
-
-                                                      <div class="form-group col">
-                                                        <label for="afastadoRodape">Afastamento do Rodapé</label>
-                                                        <input type="text" id="afastadoRodape"
-                                                          [(ngModel)]="form.rodape.afastado" class="form-control"
-                                                          placeholder="Digite o afastamento" />
-                                                      </div>
-
-                                                      <h3>Roda Teto</h3>
-                                                      <div class="row">
-                                                        <div class="form-group col">
-                                                          <label for="modeloRodaTeto">Modelo da Roda Teto</label>
-                                                          <select id="modeloRodaTeto" [(ngModel)]="form.rodaTeto.modelo"
-                                                            class="form-control">
-                                                            <option *ngFor="let item of listasOpcoes.modelosRodaTeto"
-                                                              [value]="item">{{ item }}</option>
-                                                          </select>
-                                                        </div>
-                                                      </div>
-
-                                                      <div class="form-group col">
-                                                        <label for="alturaRodaTeto">Altura</label>
-                                                        <input type="text" id="alturaRodaTeto"
-                                                          [(ngModel)]="form.rodaTeto.altura" class="form-control"
-                                                          placeholder="Digite a altura" />
-                                                      </div>
-
-                                                      <div class="form-group col">
-                                                        <label for="afastadoRodaTeto">Afastamento</label>
-                                                        <input type="text" id="afastadoRodaTeto"
-                                                          [(ngModel)]="form.rodaTeto.afastado" class="form-control"
-                                                          placeholder="Digite o afastamento" />
-                                                      </div>
-
-                                                      <h3>Eletrodoméstico</h3>
-                                                      <div class="form-group col">
-                                                        <label for="codigoEletro">Código do Modelo</label>
-                                                        <input type="text" id="codigoEletro" [(ngModel)]="eletroCodigo"
-                                                          class="form-control"
-                                                          placeholder="Digite o código do modelo" />
-                                                        <button (click)="buscarEletro()"
-                                                          class="btn-eletro">Buscar</button>
-                                                      </div>
-
-                                                      <!-- Exibir as informações do eletro -->
-                                                      <div *ngIf="eletroInfo" class="mt-4">
-                                                        <h4>Informações do Eletrodoméstico</h4>
-                                                        <p><strong>Altura:</strong> {{ eletroInfo.altura }} m</p>
-                                                        <p><strong>Largura:</strong> {{ eletroInfo.largura }} m</p>
-                                                        <p><strong>Profundidade:</strong> {{ eletroInfo.profundidade }}
-                                                          m</p>
-                                                        <p><strong>Link Manual:</strong> <a
-                                                            [href]="eletroInfo.linkManual" target="_blank">Acessar
-                                                            Manual</a></p>
-                                                      </div>
-
-                                                      <!-- Indicador de Carregamento -->
-                                                      <div *ngIf="loading" class="mt-4">
-                                                        <p>Carregando...</p>
-                                                      </div>
-
-                                                      <h3>Observações</h3>
-                                                      <div class="text-campo">
-                                                        <div>
-                                                          <textarea id="observacoes" [(ngModel)]="form.observacoes"
-                                                            class="form-control" rows="5"
-                                                            placeholder="Digite suas observações finais aqui..."></textarea>
-                                                        </div>
-
-                                                        <div>
-                                                          <!-- Botões -->
-                                                          <button (click)="saveForm()" class="btn-save">Salvar</button>
-                                                          <button (click)="printPage()"
-                                                            class="btn-print">Imprimir</button>
-                                                        </div>
+        <label for="afastadoRodaTeto">Afastamento</label>
+        <input type="text" id="afastadoRodaTeto" [(ngModel)]="form.rodaTeto.afastado" class="form-control" placeholder="Digite o afastamento" />
+    </div>
+
+    <h3>Eletrodoméstico</h3>
+    <div class="form-group col">
+         <label for="codigoEletro">Código do Modelo</label>
+        <input type="text" id="codigoEletro" [(ngModel)]="eletroCodigo" class="form-control" placeholder="Digite o código do modelo" />
+        <button (click)="buscarEletro()" class="btn-eletro">Buscar</button>
+    </div>
+
+<div *ngIf="eletroInfo" class="mt-4">
+  <h4>Informações do Eletrodoméstico</h4>
+    <p><strong>Altura:</strong> {{ eletroInfo.altura }} m</p>
+    <p><strong>Largura:</strong> {{ eletroInfo.largura }} m</p>
+    <p><strong>Profundidade:</strong> {{ eletroInfo.profundidade }} m</p>
+    <p><strong>Link Manual:</strong> <a [href]="eletroInfo.linkManual" target="_blank">Acessar Manual</a></p>
+  </div>
+
+    <div *ngIf="loading" class="mt-4">
+      <p>Carregando...</p>
+  </div>
+   <h3>Observações</h3>
+      <div class="text-campo">
+  <div>
+      <textarea id="observacoes" [(ngModel)]="form.observacoes" class="form-control" rows="5" placeholder="Digite suas observações finais aqui..."></textarea>
+  </div>
+
+  <div>
+    <button (click)="saveForm()" class="btn-save">Salvar</button>
+    <button (click)="printPage()" class="btn-print">Imprimir</button>
+  </div>
+</div>
