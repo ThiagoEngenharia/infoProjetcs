@@ -4,7 +4,7 @@ body, html {
   height: 100%;
   width: 100%;
   font-size: 8pt;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .container {
@@ -15,6 +15,7 @@ body, html {
   position: relative;
   border: #000 1px solid;
   box-shadow: 1px 1px 3px rgb(253, 1, 85);
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .container-fluid {
@@ -46,7 +47,7 @@ h1 {
 }
 
 h2, h3, h4 {
-  font-size: 9pt;
+  font-size: 12pt;
 }
 
 .row {
@@ -63,18 +64,27 @@ h2, h3, h4 {
   align-items: flex-end;
 }
 
-.title {
-  font-size: 8pt;
+.form-title{
+  font-size: 12pt;
   font-weight: bold;
   margin-right: 5px;
   white-space: nowrap;
   color: brown;
+
+}
+
+.title {
+  font-size: 12pt;
+  font-weight: bold;
+  margin-right: 5px;
+  white-space: nowrap;
+  color: rgb(0, 26, 255);
 }
 
 .form-group label {
   flex: 0 0 25%;
   text-align: center;
-  font-size: 8pt;
+  font-size: 12pt;
   margin-right: 1px;
   white-space: nowrap;
   align-items: center;
@@ -127,7 +137,7 @@ textarea {
 }
 
 .observacoes {
-  margin-top: 10px;
+  margin-top: 5px;
   padding: 5px;
   border: 1px solid #000;
   background: #fff9c4;
@@ -147,6 +157,6 @@ textarea {
 
 @media print {
   .btn {
-    display: none;
+    display: none!important;
   }
 }

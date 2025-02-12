@@ -8,6 +8,7 @@ interface Form {
   nomeCliente: string;
   vendedor: string;
   numeroPedido: string;
+  nomeAmbiente: string;
   puxadorSuperior: {
     modelo: string;
     acabamento: string;
@@ -147,6 +148,7 @@ export class FormComponent {
     nomeCliente: '',
     vendedor: '',
     numeroPedido: '',
+    nomeAmbiente: '',
     puxadorSuperior: {
       modelo: '',
       acabamento: '',
