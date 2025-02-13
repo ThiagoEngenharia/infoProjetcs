@@ -161,7 +161,7 @@ export class FormComponent {
       fornecedor: '',
       quantidade: '',
     },
-    coresProjeto: { cor1: '', cor2: '', cor3: '' },
+    coresProjeto: { cor1: '*', cor2: '', cor3: '' },
     vidro: { espessura: '', acabamento: '', fornecedor: '' },
     espelho: { espessura: '', acabamento: '', fornecedor: '' },
     portaPerfil: {
@@ -252,11 +252,13 @@ export class FormComponent {
       'Fornecedor F',
     ],
     coresMDF: [
+
       'Branco TX',
       'Cinza Urbano',
       'Madeirado Carvalho',
       'Preto Ônix',
       'Nogueira',
+
     ],
     modelosPerfil: ['Perfil A', 'Perfil B', 'Perfil C'],
     modelosPuxadorPerfil: ['Puxador X', 'Puxador Y', 'Puxador Z'],
