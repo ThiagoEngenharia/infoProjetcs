@@ -48,7 +48,7 @@
   <div class="container-fluid">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
       <div class="col">
-        <div class="form-group">
+        <div class="form-group"  [class.hide-on-print]="isFieldEmpty(form.coresProjeto.cor1)">
           <label for="corMDF1">Cor MDF 1:</label>
           <select id="corMDF1" [(ngModel)]="form.coresProjeto.cor1" class="form-control">
             <option *ngFor="let cor of listasOpcoes.coresMDF; trackBy: trackByFn" [value]="cor">{{ cor }}</option>
@@ -57,7 +57,7 @@
       </div>
 
       <div class="col">
-        <div class="form-group">
+        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.coresProjeto.cor2)">
           <label for="corMDF2">Cor MDF 2:</label>
           <select id="corMDF2" [(ngModel)]="form.coresProjeto.cor2" class="form-control">
             <option *ngFor="let cor of listasOpcoes.coresMDF; trackBy: trackByFn" [value]="cor">{{ cor }}</option>
@@ -66,7 +66,7 @@
       </div>
 
       <div class="col">
-        <div class="form-group">
+        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.coresProjeto.cor3)">
           <label for="corMDF3">Cor MDF 3:</label>
           <select id="corMDF3" [(ngModel)]="form.coresProjeto.cor3" class="form-control">
             <option *ngFor="let cor of listasOpcoes.coresMDF; trackBy: trackByFn" [value]="cor">{{ cor }}</option>
@@ -83,7 +83,7 @@
   <div class="container-fluid">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
       <div class="col">
-        <div class="form-group">
+        <div class="form-group"[class.hide-on-print]="isFieldEmpty(form.iluminacao.modelo)">
           <label for="modeloIluminacao">Modelo Iluminação:</label>
           <select id="modeloIluminacao" [(ngModel)]="form.iluminacao.modelo" class="form-control">
             <option *ngFor="let item of listasOpcoes.modelosIluminacao; trackBy: trackByFn" [value]="item">{{ item }}</option>
