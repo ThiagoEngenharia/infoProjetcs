@@ -5,10 +5,13 @@ import { CommonModule } from '@angular/common';
 
 // Definição de tipos para o formulário
 interface Form {
+
   nomeCliente: string;
   vendedor: string;
   numeroPedido: string;
   nomeAmbiente: string;
+
+
   puxadorSuperior: {
     modelo: string;
     acabamento: string;
@@ -128,7 +131,7 @@ interface Form {
     afastado: string;
     responsavel: string;
   };
-  box: { existente: boolean; margem: string; alturaFinal: string };
+  box: { modelos: string ,existente: boolean; margem: string; alturaFinal: string };
   rodape: { modelo: string; recebe: string; altura: string; afastado: string };
   rodaTeto: { modelo: string; altura: string; afastado: string };
   eletrodomesticos: any[];
@@ -145,10 +148,13 @@ interface Form {
 })
 export class FormComponent {
   form: Form = {
+
     nomeCliente: '',
     vendedor: '',
     numeroPedido: '',
     nomeAmbiente: '',
+
+
     puxadorSuperior: {
       modelo: '*',
       acabamento: '*',
@@ -191,7 +197,7 @@ export class FormComponent {
     serralheria: { modelo: '*', acabamento: '*', fornecedor: '*', instalador: '*' },
     iluminacao: { modelo: '*', temperatura: '*', fornecedor: '*' },
     tomada: { modelo: '*', acabamento: '*', quantidade: '*', fornecedor: '*' },
-    interruptor: { modelo: '*', acabamento: '*', quantidade: '', fornecedor: '*' },
+    interruptor: { modelo: '*', acabamento: '*', quantidade: '*', fornecedor: '*' },
     passaFio: { modelo: '*', acabamento: '*', quantidade: '*', fornecedor: '*' },
     portaTempero: {
       modelo: '*',
@@ -219,7 +225,7 @@ export class FormComponent {
       fornecedor: '*',
     },
     tulha: { modelo: '*', acabamento: '*', quantidade: '*', fornecedor: '*' },
-    corrediça: { modelo: '*', acabamento: '' },
+    corrediça: { modelo: '*', acabamento: '*' },
     tabuaPassar: { modelo: '*', acabamento: '*', quantidade: '*', fornecedor: '*' },
     pedra: {
       existente: [false],
@@ -228,7 +234,7 @@ export class FormComponent {
       afastado: '*',
       responsavel: '*',
     },
-    box: { existente: false, margem: '*', alturaFinal: '*' },
+    box: { modelos: '*', existente: false, margem: '*', alturaFinal: '*' },
     rodape: { modelo: '*', recebe: '*', altura: '*', afastado: '*' },
     rodaTeto: { modelo: '*', altura: '*', afastado: '*' },
     eletrodomesticos: [],
@@ -322,6 +328,10 @@ export class FormComponent {
       'Cliente',
       'Fabrica', ''
     ],
+
+    quantidadePuxadorSuperior: [
+      '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ''
+    ],
     modelosPuxadorInferior: [
     'Cava no MDF',
     'Cava no MDF uzinado',
@@ -403,6 +413,9 @@ export class FormComponent {
     fornecedoresPuxadorInferior: [
       'Cliente',
       'Fabrica', ''],
+      quantidadePuxadorInferior: [
+        '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ''
+      ],
     coresMDF: [
     'Acácia Carmel - Arauco',
     'Acácia Volcano - Arauco',
@@ -925,6 +938,9 @@ export class FormComponent {
       'Branco',
       'Preto',
       'Cinza', ''],
+      quantidadeTomada: [
+        '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ''
+      ],
     //Interruptor
     modelosInterruptor: [
       'Bola.',
@@ -942,6 +958,9 @@ export class FormComponent {
     fornecedoresInterruptor: [
       'Fabrica',
       'Cliente',''],
+    quantidadeInterruptor: [
+      '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ''
+      ],
 
     //Passa Fio
     modelosPassaFio: [
@@ -955,6 +974,9 @@ export class FormComponent {
     fornecedoresPassaFio: [
       'Fabrica',
       'Cliente', ''],
+      quantidadePassaFio: [
+      '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ''
+      ],
 
     //Porta Tempero
     modelosPortaTempero: [
@@ -968,8 +990,11 @@ export class FormComponent {
     fornecedoresPortaTempero: [
       'Fabrica',
       'Cliente', ''],
+    quantidadePortaTempero: [
+        '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ''
+      ],
 
-    //Porta Talher
+    //Lixeira
     modelosLixeira: [
       'Padrão Fabrica',
       'Hafele',
@@ -981,6 +1006,10 @@ export class FormComponent {
     fornecedoresLixeira: [
       'Fabrica',
       'Cliente', ''],
+    quantidadeLixeira: [
+      '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ''
+      ],
+
     //Divisor Gaveta
     modelosDivisorGaveta: [
       'Pdrão Fabrica',
@@ -993,12 +1022,14 @@ export class FormComponent {
     fornecedoresDivisorGaveta: [
       'Fabrica',
       'Cliente', ''],
+    quantidadeDivisorGaveta: [
+      '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ''
+        ],
     //Divisor Acrilico
     modelosDivisorAcrilico: [
       'Padrão Fabrica',
       'Outro Modelo', ''
     ],
-
     acabamentosDivisorAcrilico: [
       'Transparente',
       'Branco',
@@ -1009,6 +1040,9 @@ export class FormComponent {
       'Fabrica',
       'Cliente', ''
     ],
+    quantidadeDivisorAcrilico: [
+      '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ''
+      ],
     //Divisor Talher
     modelosDivisorTalher: [
       'Padrão Fabrica',
@@ -1022,7 +1056,9 @@ export class FormComponent {
     fornecedoresDivisorTalher: [
       'Fabrica',
       'Cliente', ''],
-
+    quantidadeDivisorTalher: [
+        '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ''
+        ],
     //Tulha
     modelosTulha: [
       'Gavetão',
@@ -1036,7 +1072,9 @@ export class FormComponent {
     fornecedoresTulha: [
       'Fabrica',
       'Cliente', ''],
-
+    quantidadeTulha: [
+        '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ''
+        ],
     //Corrediça
     modelosCorrediça: [
       'FGVTN',
@@ -1065,7 +1103,9 @@ export class FormComponent {
     fornecedorTabuaPassar: [
       'Fabrica',
       'Cliente', ''],
-
+    quantidadeTabuaPassar: [
+        '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ''
+        ],
     //Pedra
     modelosPedra: [
       'Granito',
