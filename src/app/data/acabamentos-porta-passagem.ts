@@ -1,0 +1,15 @@
+export const  acabamentosPortaPassagem = [
+  'Reflecta Fume',
+  'Espelho Bronze',
+  'Espelho Fume',
+  'Espelho Prata',
+  'Reflecta Bronze',
+  'Existente',
+  'MDF',
+  'Reflecta Champagne',
+  'Reflecta Incolor',
+  'Reflecta Prata',
+  'Vidro Incolor',
+  'Vidro na cor MDF',
+  'Ver observações',
+  '?', '' ]

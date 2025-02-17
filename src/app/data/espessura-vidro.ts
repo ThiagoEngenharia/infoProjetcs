@@ -1,0 +1,20 @@
+export const   espessurasVidro = [
+  '25 mm',
+  '4 mm',
+  '6 mm',
+  '8 mm',
+  '15 mm',
+  '10 mm',
+  '12 mm',
+  '20 mm',
+  '30 mm',
+  'Bisote 10 mm',
+  'Bisote 15 mm',
+  'Bisote 20 mm',
+  'Bisote 25 mm',
+  'Bisote 30 mm',
+  'Bisote 35 mm',
+  'Bisote 40 mm',
+  'Ver observações',
+  '?', ''
+]

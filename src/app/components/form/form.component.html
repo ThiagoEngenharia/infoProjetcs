@@ -104,7 +104,7 @@
         <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.iluminacao.fornecedor)">
           <label for="fornecedorIluminacao">Quem Fornecerá?:</label>
           <select id="fornecedorIluminacao" [(ngModel)]="form.iluminacao.fornecedor" class="form-control">
-            <option *ngFor="let item of listasOpcoes.fornecedoresIluminacao; trackBy: trackByFn" [value]="item">{{ item }}</option>
+            <option *ngFor="let item of listasOpcoes.Fornecedor; trackBy: trackByFn" [value]="item">{{ item }}</option>
           </select>
         </div>
       </div>
@@ -192,7 +192,7 @@
         <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.puxadorSuperior.modelo)">
           <label for="modeloPuxadorSuperior">Modelo Puxador Superior:</label>
           <select id="modeloPuxadorSuperior" [(ngModel)]="form.puxadorSuperior.modelo" class="form-control">
-            <option *ngFor="let item of listasOpcoes.modelosPuxadorSuperior; trackBy: trackByFn" [value]="item">{{ item }}</option>
+            <option *ngFor="let item of listasOpcoes.modeloPuxadorSuperior; trackBy: trackByFn" [value]="item">{{ item }}</option>
           </select>
         </div>
       </div>
@@ -201,7 +201,7 @@
         <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.puxadorSuperior.acabamento)">
           <label for="acabamentoPuxadorSuperior">Acabamento Puxador Superior:</label>
           <select id="acabamentoPuxadorSuperior" [(ngModel)]="form.puxadorSuperior.acabamento" class="form-control">
-            <option *ngFor="let item of listasOpcoes.acabamentosPuxadorSuperior; trackBy: trackByFn" [value]="item">{{ item }}</option>
+            <option *ngFor="let item of listasOpcoes.acabamentoPuxador; trackBy: trackByFn" [value]="item">{{ item }}</option>
           </select>
         </div>
       </div>
@@ -210,7 +210,7 @@
         <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.puxadorSuperior.quantidade)">
           <label for="quantidadePuxadorSuperior">Quantidade:</label>
           <select name="quantidadePuxadorSuperior" [(ngModel)]="form.puxadorSuperior.quantidade" class="form-control">
-           <option *ngFor="let item of listasOpcoes.quantidadePuxadorSuperior; trackBy: trackByFn" [value]="item">{{ item }}</option>
+           <option *ngFor="let item of listasOpcoes.quantidadepuxadorsuperior; trackBy: trackByFn" [value]="item">{{ item }}</option>
           </select>
         </div>
       </div>
@@ -219,7 +219,7 @@
         <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.puxadorSuperior.fornecedor)">
           <label for="fornecedorPuxadorSuperior">Quem irá Fornecer:</label>
           <select id="fornecedorPuxadorSuperior" [(ngModel)]="form.puxadorSuperior.fornecedor" class="form-control">
-            <option *ngFor="let item of listasOpcoes.fornecedoresPuxadorSuperior; trackBy: trackByFn" [value]="item">{{ item }}</option>
+            <option *ngFor="let item of listasOpcoes.Fornecedor; trackBy: trackByFn" [value]="item">{{ item }}</option>
           </select>
         </div>
       </div>
@@ -236,7 +236,7 @@
         <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.puxadorInferior.modelo)">
           <label for="modeloPuxadorInferior">Modelo Puxador Inferior:</label>
           <select id="modeloPuxadorInferior" [(ngModel)]="form.puxadorInferior.modelo" class="form-control">
-            <option *ngFor="let item of listasOpcoes.modelosPuxadorInferior; trackBy: trackByFn" [value]="item">{{ item }}</option>
+            <option *ngFor="let item of listasOpcoes.modeloPuxadorInferior; trackBy: trackByFn" [value]="item">{{ item }}</option>
           </select>
         </div>
       </div>
@@ -245,7 +245,7 @@
         <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.puxadorInferior.acabamento)">
           <label for="acabamentoPuxadorInferior">Acabamento Puxador Inferior:</label>
           <select id="acabamentoPuxadorInferior" [(ngModel)]="form.puxadorInferior.acabamento" class="form-control">
-            <option *ngFor="let item of listasOpcoes.acabamentosPuxadorInferior; trackBy: trackByFn" [value]="item">{{ item }}</option>
+            <option *ngFor="let item of listasOpcoes.acabamentoPuxadorInferior; trackBy: trackByFn" [value]="item">{{ item }}</option>
           </select>
         </div>
       </div>
@@ -1006,7 +1006,7 @@
         <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.portaPerfil.modeloPerfil)">
           <label for="modeloPerfil">Porta Perfil Modelo:</label>
           <select id="modeloPerfil" [(ngModel)]="form.portaPerfil.modeloPerfil" class="form-control">
-            <option *ngFor="let item of listasOpcoes.modelosPerfil; trackBy: trackByFn" [value]="item">{{ item }}</option>
+            <option *ngFor="let item of listasOpcoes.modeloPerfil; trackBy: trackByFn" [value]="item">{{ item }}</option>
           </select>
         </div>
       </div>
