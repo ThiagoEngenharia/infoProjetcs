@@ -34,7 +34,7 @@ interface Form {
     corpoPorta: string;
     acabamentoCorpo: string;
   };
-  sistemaPortaDeslizante: {
+  portaDeslizante: {
     nomeSistema: string;
     corpoPorta: string;
     acabamentoCorpo: string;
@@ -45,7 +45,7 @@ interface Form {
     nomeSistema: string;
     corpoPorta: string;
     acabamentoCorpo: string;
-    quantidade: string;
+    quantidadePortaPassagem: string;
     fechadura: string;
   };
   ventilacao: { modelo: string; acabamento: string };
@@ -125,15 +125,15 @@ interface Form {
     fornecedor: string;
   };
   pedra: {
-    existente: boolean[];
+    existentePedra: string;
     espessura: string;
-    altura: string;
+    alturaFinalPedra: string;
     afastado: string;
-    responsavel: string;
+    fornecedoresPedra: string;
   };
-  box: { modelos: string ,existente: boolean; margem: string; alturaFinal: string };
-  rodape: { modelo: string; recebe: string; altura: string; afastado: string };
-  rodaTeto: { modelo: string; altura: string; afastado: string };
+  box: { modelos: string ,existente: boolean; margemBox: string; alturaFinal: string };
+  rodape: { modelo: string; recebe: string; alturaRodape: string; afastamentoRodape: string };
+  rodaTeto: { modelo: string; alturaRodateto: string; afastamentoRodateto: string };
   eletrodomesticos: any[];
   observacoes: string;
 
@@ -155,42 +155,14 @@ export class FormComponent {
     nomeAmbiente: '',
 
 
-    puxadorSuperior: {
-      modelo: '*',
-      acabamento: '*',
-      fornecedor: '*',
-      quantidade: '*',
-    },
-    puxadorInferior: {
-      modelo: '*',
-      acabamento: '*',
-      fornecedor: '*',
-      quantidade: '*',
-    },
+    puxadorSuperior: { modelo: '*', acabamento: '*', fornecedor: '*', quantidade: '*'},
+    puxadorInferior: { modelo: '*', acabamento: '*', fornecedor: '*', quantidade: '*'},
     coresProjeto: { cor1: '*', cor2: '*', cor3: '*' },
     vidro: { espessura: '*', acabamento: '*', fornecedor: '*' },
     espelho: { espessura: '*', acabamento: '*', fornecedor: '*' },
-    portaPerfil: {
-      modeloPerfil: '*',
-      modeloPuxador: '*',
-      corPerfil: '*',
-      corpoPorta: '*',
-      acabamentoCorpo: '*',
-    },
-    sistemaPortaDeslizante: {
-      nomeSistema: '*',
-      corpoPorta: '*',
-      acabamentoCorpo: '*',
-      quantidade: '*',
-      fechadura: '*',
-    },
-    portaPassagem: {
-      nomeSistema: '*',
-      corpoPorta: '*',
-      acabamentoCorpo: '*',
-      quantidade: '*',
-      fechadura: '*',
-    },
+    portaPerfil: { modeloPerfil: '*', modeloPuxador: '*', corPerfil: '*', corpoPorta: '*', acabamentoCorpo: '*'},
+    portaDeslizante: { nomeSistema: '*', corpoPorta: '*', acabamentoCorpo: '*', quantidade: '*', fechadura: '*'},
+    portaPassagem: { nomeSistema: '*', corpoPorta: '*', acabamentoCorpo: '*', quantidadePortaPassagem: '*', fechadura: '*'},
     ventilacao: { modelo: '*', acabamento: '*' },
     fechaduras: { modelo: '*' },
     estofaria: { modelo: '*', acabamento: '*', fornecedor: '*', instalador: '*' },
@@ -199,46 +171,20 @@ export class FormComponent {
     tomada: { modelo: '*', acabamento: '*', quantidade: '*', fornecedor: '*' },
     interruptor: { modelo: '*', acabamento: '*', quantidade: '*', fornecedor: '*' },
     passaFio: { modelo: '*', acabamento: '*', quantidade: '*', fornecedor: '*' },
-    portaTempero: {
-      modelo: '*',
-      acabamento: '*',
-      quantidade: '*',
-      fornecedor: '*',
-    },
+    portaTempero: { modelo: '*', acabamento: '*', quantidade: '*', fornecedor: '*' },
     lixeira: { modelo: '*', acabamento: '*', quantidade: '*', fornecedor: '*' },
-    divisorGaveta: {
-      modelo: '*',
-      acabamento: '*',
-      quantidade: '*',
-      fornecedor: '*',
-    },
-    divisorAcrilico: {
-      modelo: '*',
-      acabamento: '*',
-      quantidade: '*',
-      fornecedor: '*',
-    },
-    divisorTalher: {
-      modelo: '*',
-      acabamento: '*',
-      quantidade: '*',
-      fornecedor: '*',
-    },
+    divisorGaveta: { modelo: '*', acabamento: '*', quantidade: '*', fornecedor: '*'},
+    divisorAcrilico: { modelo: '*', acabamento: '*', quantidade: '*', fornecedor: '*'},
+    divisorTalher: {      modelo: '*',      acabamento: '*',      quantidade: '*',      fornecedor: '*',    },
     tulha: { modelo: '*', acabamento: '*', quantidade: '*', fornecedor: '*' },
     corrediça: { modelo: '*', acabamento: '*' },
     tabuaPassar: { modelo: '*', acabamento: '*', quantidade: '*', fornecedor: '*' },
-    pedra: {
-      existente: [false],
-      espessura: '*',
-      altura: '*',
-      afastado: '*',
-      responsavel: '*',
-    },
-    box: { modelos: '*', existente: false, margem: '*', alturaFinal: '*' },
-    rodape: { modelo: '*', recebe: '*', altura: '*', afastado: '*' },
-    rodaTeto: { modelo: '*', altura: '*', afastado: '*' },
+    pedra: { existentePedra: '*', espessura: '*', alturaFinalPedra: '*', afastado: '*', fornecedoresPedra: '*'},
+    box: { modelos: '*', existente: false, margemBox: '*', alturaFinal: '*' },
+    rodape: { modelo: '*', recebe: '*', alturaRodape: '*', afastamentoRodape: '*' },
+    rodaTeto: { modelo: '*', alturaRodateto: '*', afastamentoRodateto: '*' },
     eletrodomesticos: [],
-    observacoes: '*',
+    observacoes: '',
   };
 
 
@@ -789,7 +735,7 @@ export class FormComponent {
     fechadurasPortaDeslizante: [
       'STAM 1006 Chave-JM02 (deslisante e convecon)',
       'STAM 1006 Tranqueta-JM01 (deslisante)', '' ],
-    sistemasPortaPassagem: [
+    sistemasPortaDeslizante: [
       'RO 82 (casa)',
       'Ezdoor 4 Plus (suspença)',
       'CD30 cx (embutida)',
@@ -801,12 +747,28 @@ export class FormComponent {
       'Pivotante',
       'Ver observações',
       '?',' '],
+      quantidadePortaDeslizante: [
+        '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ''
+    ],
+
 
     //Porta Passagem
     corposPortaPassagem: [
       'MDF',
       'Vidro',
       'Alumínio', ''],
+      sistemasPortaPassagem: [
+        'RO 82 (casa)',
+        'Ezdoor 4 Plus (suspença)',
+        'CD30 cx (embutida)',
+        'Junior 6 (interno armário)',
+        'Existente',
+        'Giro',
+        'Linea',
+        'TL 110 (Interno trilho superior)',
+        'Pivotante',
+        'Ver observações',
+        '?',' '],
     acabamentosPortaPassagem: [
       'Reflecta Fume',
       'Espelho Bronze',
@@ -834,6 +796,9 @@ export class FormComponent {
       'Ver observações',
       '?', ''
 ],
+    quantidadePortaPassagem: [
+      '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ''
+  ],
 
     //Modelo Estofado
     modelosEstofaria: [
@@ -1107,6 +1072,7 @@ export class FormComponent {
         '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ''
         ],
     //Pedra
+    existentePedra:['Sim', 'Não', ''],
     modelosPedra: [
       'Granito',
       'Mármore',
@@ -1114,23 +1080,170 @@ export class FormComponent {
     fornecedoresPedra: [
       'Cliente',
       'Fabrica', ''],
+    espessuraPedra:[
+      '2cm',
+      '3cm',
+      '4cm',
+      '5cm',
+      '6cm',
+      '7cm',
+      '8cm',
+      '9cm',
+      '10cm',
+      '11cm',
+      '12cm',
+      '13cm',
+      '14cm',
+      '15cm',
+      '16cm',
+      '17cm',
+      '18cm',
+      '19cm',
+      '20cm',
+      '21cm',
+      '22cm',
+      '23cm',
+      '24cm',
+      '25cm',
+      '26cm',
+      '27cm',
+      '28cm',
+      '29cm',
+      '30cm',
+      '31cm',
+      '32cm',
+      '33cm',
+      '34cm',
+      '35cm',
+      '36cm',
+      '37cm',
+      '38cm',
+      '39cm',
+      '40cm',
+      '',
+    ],
+
+    alturafinalPedra:[
+      '84cm',
+      '85cm',
+      '86cm',
+      '87cm',
+      '88cm',
+      '89cm',
+      '90cm',
+      '91cm',
+      '92cm',
+      '93cm',
+      '94cm',
+      '95cm',
+      '96cm',
+      '97cm',
+      '98cm',
+      '99cm',
+      '100cm',
+      '',
+
+    ],
 
     //Box
     modelosBox: [
       'Até o Teto',
       'Sob Medida',
-      'Sem Box', ''],
+      'Sem Box', ""],
+    margemBox:[
+      '6cm', '8cm', ""
+    ],
 
     //Rodapé
     modelosRodape: [
       'Liso',
       'Com Friso', ''
       ],
+    alturaRodape:[
+      '40mm',
+      '50mm',
+      '60mm',
+      '70mm',
+      '80mm',
+      '90mm',
+      '100mm',
+      '110mm',
+      '120mm',
+      '130mm',
+      '140mm',
+      '150mm',
+      '160mm',
+      '170mm',
+      '180mm',
+      '190mm',
+      '200mm',
+      '210mm',
+      '220mm',
+      '230mm',
+      '240mm',
+      '250mm',
+      '260mm',
+      '270mm',
+      '280mm',
+      ''
+    ],
+    afastamentoRodape:[
+      '1cm',
+      '2cm',
+      '3cm',
+      '4cm',
+      '5cm',
+      '6cm',
+      '7cm',
+      '8cm',
+      '9cm',
+      '10cm',
+      '',
+    ],
+    recebeRodape: ['Sim', 'Não', ''],
+
+    //Roda Teto
     modelosRodaTeto: [
       'Liso',
       'Com Detalhes', ''
     ],
-    recebeRodape: ['Sim', 'Não', ''],
+    alturaRodateto:[
+      '80mm',
+      '90mm',
+      '100mm',
+      '110mm',
+      '120mm',
+      '130mm',
+      '140mm',
+      '150mm',
+      '160mm',
+      '170mm',
+      '180mm',
+      '190mm',
+      '200mm',
+      '210mm',
+      '220mm',
+      '230mm',
+      '240mm',
+      '250mm',
+      '260mm',
+      '270mm',
+      '280mm',
+      ''
+    ],
+    afastamentoFrontalRodateto:[
+      '1cm',
+      '2cm',
+      '3cm',
+      '4cm',
+      '5cm',
+      '6cm',
+      '7cm',
+      '8cm',
+      '9cm',
+      '10cm',
+      '',]
+
   };
 
   // Função para salvar o formulário

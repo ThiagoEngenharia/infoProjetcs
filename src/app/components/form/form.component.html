@@ -649,10 +649,13 @@
         </div>
       </div>
 
+
       <div class="col">
         <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.divisorGaveta.quantidade)">
           <label for="quantidadeDivisorGaveta">Quantidade:</label>
-          <input type="text" id="quantidadeDivisorGaveta" [(ngModel)]="form.divisorGaveta.quantidade" class="form-control">
+          <select name="quantidadeDivisorGaveta" [(ngModel)]="form.divisorGaveta.quantidade" class="form-control">
+           <option *ngFor="let item of listasOpcoes.quantidadeDivisorGaveta; trackBy: trackByFn" [value]="item">{{ item }}</option>
+          </select>
         </div>
       </div>
 
@@ -695,7 +698,9 @@
       <div class="col">
         <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.divisorTalher.quantidade)">
           <label for="quantidadeDivisorTalher">Quantidade:</label>
-          <input type="text" id="quantidadeDivisorTalher" [(ngModel)]="form.divisorTalher.quantidade" class="form-control">
+          <select name="quantidadeDivisorTalher" [(ngModel)]="form.divisorTalher.quantidade" class="form-control">
+           <option *ngFor="let item of listasOpcoes.quantidadeDivisorTalher; trackBy: trackByFn" [value]="item">{{ item }}</option>
+          </select>
         </div>
       </div>
 
@@ -736,10 +741,13 @@
         </div>
       </div>
 
+
       <div class="col">
         <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.tabuaPassar.quantidade)">
           <label for="quantidadeTabuaPassar">Quantidade:</label>
-          <input type="text" id="quantidadeTabuaPassar" [(ngModel)]="form.tabuaPassar.quantidade" class="form-control">
+          <select name="quantidadeTabuaPassar" [(ngModel)]="form.tabuaPassar.quantidade" class="form-control">
+           <option *ngFor="let item of listasOpcoes.quantidadeTabuaPassar; trackBy: trackByFn" [value]="item">{{ item }}</option>
+          </select>
         </div>
       </div>
 
@@ -781,7 +789,9 @@
       <div class="col">
         <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.divisorAcrilico.quantidade)">
           <label for="quantidadeDivisorAcrilico">Quantidade:</label>
-          <input type="text" id="quantidadeDivisorAcrilico" [(ngModel)]="form.divisorAcrilico.quantidade" class="form-control">
+          <select name="quantidadeDivisorAcrilico" [(ngModel)]="form.divisorAcrilico.quantidade" class="form-control">
+           <option *ngFor="let item of listasOpcoes.quantidadeDivisorAcrilico; trackBy: trackByFn" [value]="item">{{ item }}</option>
+          </select>
         </div>
       </div>
 
@@ -823,16 +833,20 @@
       </div>
 
       <div class="col">
-        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.rodape.altura)">
-          <label for="alturaRodape">Altura do Rodapé:</label>
-          <input type="text" id="alturaRodape" [(ngModel)]="form.rodape.altura" class="form-control">
+        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.rodape.alturaRodape)">
+          <label for="alturaRodape">Altura do Rodape:</label>
+          <select name="alturaRodape" [(ngModel)]="form.rodape.alturaRodape" class="form-control">
+           <option *ngFor="let item of listasOpcoes.alturaRodape; trackBy: trackByFn" [value]="item">{{ item }}</option>
+          </select>
         </div>
       </div>
 
       <div class="col">
-        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.rodape.afastado)">
+        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.rodape.afastamentoRodape)">
           <label for="afastadoRodape">Afastamento do Rodapé:</label>
-          <input type="text" id="afastadoRodape" [(ngModel)]="form.rodape.afastado" class="form-control">
+          <select name="afastadoRodape" [(ngModel)]="form.rodape.afastamentoRodape" class="form-control">
+            <option *ngFor="let item of listasOpcoes.afastamentoRodape; trackBy: trackByFn" [value]="item" >{{item}}</option>
+          </select>
         </div>
       </div>
     </div>
@@ -854,16 +868,20 @@
       </div>
 
       <div class="col">
-        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.rodaTeto.altura)">
+        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.rodaTeto.alturaRodateto)">
           <label for="alturaRodaTeto">Altura:</label>
-          <input type="text" id="alturaRodaTeto" [(ngModel)]="form.rodaTeto.altura" class="form-control">
+          <select id="alturaRodaTeto" [(ngModel)]="form.rodaTeto.alturaRodateto" class="form-control">
+            <option *ngFor="let item of listasOpcoes.alturaRodateto" [value]="item">{{ item }}</option>
+          </select>
         </div>
       </div>
 
       <div class="col">
-        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.rodaTeto.afastado)">
+        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.rodaTeto.afastamentoRodateto)">
           <label for="afastadoRodaTeto">Afastamento Frontal:</label>
-          <input type="text" id="afastadoRodaTeto" [(ngModel)]="form.rodaTeto.afastado" class="form-control">
+          <select id="afastadoRodaTeto" [(ngModel)]="form.rodaTeto.afastamentoRodateto" class="form-control">
+            <option *ngFor="let item of listasOpcoes.afastamentoFrontalRodateto" [value]="item">{{ item }}</option>
+          </select>
         </div>
       </div>
     </div>
@@ -877,43 +895,45 @@
   <div class="container-fluid">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5">
       <div class="col">
-        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.sistemaPortaDeslizante.nomeSistema)">
+        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.portaDeslizante.nomeSistema)">
           <label for="nomeSistemaPortaDeslizante">Porta Deslizante Sistema:</label>
-          <select id="nomeSistemaPortaDeslizante" [(ngModel)]="form.sistemaPortaDeslizante.nomeSistema" class="form-control">
+          <select id="nomeSistemaPortaDeslizante" [(ngModel)]="form.portaDeslizante.nomeSistema" class="form-control">
             <option *ngFor="let item of listasOpcoes.nomesSistemasPortaDeslizante; trackBy: trackByFn" [value]="item">{{ item }}</option>
           </select>
         </div>
       </div>
 
       <div class="col">
-        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.sistemaPortaDeslizante.corpoPorta)">
+        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.portaDeslizante.corpoPorta)">
           <label for="corpoPortaDeslizante">Corpo da Porta:</label>
-          <select id="corpoPortaDeslizante" [(ngModel)]="form.sistemaPortaDeslizante.corpoPorta" class="form-control">
+          <select id="corpoPortaDeslizante" [(ngModel)]="form.portaDeslizante.corpoPorta" class="form-control">
             <option *ngFor="let item of listasOpcoes.corposPortaDeslizante; trackBy: trackByFn" [value]="item">{{ item }}</option>
           </select>
         </div>
       </div>
 
       <div class="col">
-        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.sistemaPortaDeslizante.acabamentoCorpo)">
+        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.portaDeslizante.acabamentoCorpo)">
           <label for="acabamentoPortaDeslizante">Acabamento do Corpo:</label>
-          <select id="acabamentoPortaDeslizante" [(ngModel)]="form.sistemaPortaDeslizante.acabamentoCorpo" class="form-control">
+          <select id="acabamentoPortaDeslizante" [(ngModel)]="form.portaDeslizante.acabamentoCorpo" class="form-control">
             <option *ngFor="let item of listasOpcoes.acabamentosPortaDeslizante; trackBy: trackByFn" [value]="item">{{ item }}</option>
           </select>
         </div>
       </div>
 
       <div class="col">
-        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.sistemaPortaDeslizante.quantidade)">
+        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.portaDeslizante.quantidade)">
           <label for="quantidadePortaDeslizante">Quantidade:</label>
-          <input type="text" id="quantidadePortaDeslizante" [(ngModel)]="form.sistemaPortaDeslizante.quantidade" class="form-control">
+          <select name="quantidadePortaDeslizante" [(ngModel)]="form.portaDeslizante.quantidade" class="form-control">
+           <option *ngFor="let item of listasOpcoes.quantidadePortaDeslizante; trackBy: trackByFn" [value]="item">{{ item }}</option>
+          </select>
         </div>
       </div>
 
       <div class="col">
-        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.sistemaPortaDeslizante.fechadura)">
+        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.portaDeslizante.fechadura)">
           <label for="fechaduraPortaDeslizante">Fechadura:</label>
-          <select id="fechaduraPortaDeslizante" [(ngModel)]="form.sistemaPortaDeslizante.fechadura" class="form-control">
+          <select id="fechaduraPortaDeslizante" [(ngModel)]="form.portaDeslizante.fechadura" class="form-control">
             <option *ngFor="let item of listasOpcoes.fechadurasPortaDeslizante; trackBy: trackByFn" [value]="item">{{ item }}</option>
           </select>
         </div>
@@ -965,9 +985,11 @@
       </div>
 
       <div class="col">
-        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.portaPassagem.quantidade)">
+        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.portaPassagem.quantidadePortaPassagem)">
           <label for="quantidadePortaPassagem">Quantidade:</label>
-          <input type="text" id="quantidadePortaPassagem" [(ngModel)]="form.portaPassagem.quantidade" class="form-control">
+          <select id="quantidadePortaPassagem" [(ngModel)]="form.portaPassagem.quantidadePortaPassagem" class="form-control">
+            <option *ngFor="let item of listasOpcoes.quantidadePortaPassagem; trackBy: trackByFn" [value]="item">{{ item }}</option>
+          </select>
         </div>
       </div>
 
@@ -1034,33 +1056,38 @@
   <div class="container-fluid">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
       <div class="col">
-        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.pedra.existente)">
+        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.pedra.existentePedra)">
           <label for="existentePedra">Pedra Existente:</label>
-          <select id="existentePedra" [(ngModel)]="form.pedra.existente" class="form-control">
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
+          <select id="existentePedra" [(ngModel)]="form.pedra.existentePedra" class="form-control">
+            <option *ngFor="let item of listasOpcoes.existentePedra, trackBy: trackByFn" [value]="item">{{ item }}</option>
           </select>
         </div>
       </div>
 
       <div class="col">
         <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.pedra.espessura)">
-          <label for="espessuraPedra">Espessura:</label>
-          <input type="text" id="espessuraPedra" [(ngModel)]="form.pedra.espessura" class="form-control">
+          <label for="espessuraPedra">Espessura da Pedra:</label>
+          <select name="espessuraPedra" [(ngModel)]="form.pedra.espessura" class="form-control">
+           <option *ngFor="let item of listasOpcoes.espessuraPedra; trackBy: trackByFn" [value]="item">{{ item }}</option>
+          </select>
         </div>
       </div>
 
       <div class="col">
-        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.pedra.altura)">
+        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.pedra.alturaFinalPedra)">
           <label for="alturaFinalPedra">Altura Final:</label>
-          <input type="text" id="alturaFinalPedra" [(ngModel)]="form.pedra.altura" class="form-control">
+          <select name="alturaFinalPedra" [(ngModel)]="form.pedra.alturaFinalPedra" class="form-control">
+            <option *ngFor="let item of listasOpcoes.alturafinalPedra; trackBy: trackByFn" [value]="item">{{ item }}</option>
+           </select>
         </div>
       </div>
 
       <div class="col">
-        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.pedra.responsavel)">
-          <label for="responsavelPedra">Responsável:</label>
-          <input type="text" id="responsavelPedra" [(ngModel)]="form.pedra.responsavel" class="form-control">
+        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.pedra.fornecedoresPedra)">
+          <label for="fornecedoresPedra">Responsável:</label>
+          <select name="fornecedoresPedra" [(ngModel)]="form.pedra.fornecedoresPedra" class="form-control">
+            <option *ngFor="let item of listasOpcoes.fornecedoresPedra; trackBy: trackByFn" [value]="item">{{ item }}</option>
+           </select>
         </div>
       </div>
     </div>
@@ -1082,9 +1109,11 @@
     </div>
 
       <div class="col">
-        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.box.margem)">
+        <div class="form-group" [class.hide-on-print]="isFieldEmpty(form.box.margemBox)">
           <label for="margemBox">Box Margem:</label>
-          <input type="text" id="margemBox" [(ngModel)]="form.box.margem" class="form-control">
+          <select id="margemBox" [(ngModel)]="form.box.margemBox" class="form-control">
+            <option *ngFor="let item of listasOpcoes.margemBox; trackBy: trackByFn" [value]="item">{{ item }}</option>
+          </select>
         </div>
       </div>
 
