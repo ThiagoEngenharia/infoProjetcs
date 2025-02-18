@@ -1,0 +1,17 @@
+export const acabamentosSerralheria = [
+  'Preto brilho',
+  'Anodizado',
+  'Bronze',
+  'Dourado',
+  'Inox fosco',
+  'Inox polido',
+  'Existente',
+  'Inox polido',
+  'Pintado cor do MDF',
+  'Preto fosco',
+  'Areia M3609',
+  'Rose Gold',
+  'Dourado 2,5',
+  'Champanhe',
+  'Ver observações',
+  '?', '']

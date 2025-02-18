@@ -1,0 +1,1 @@
+export const recebeRodape = ['Sim', 'Não', '']
