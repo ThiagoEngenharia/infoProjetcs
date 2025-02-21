@@ -2,6 +2,10 @@ import { Component, HostListener } from '@angular/core';
 import { EletroService, EletroDTO } from 'src/app/services/eletro.service';
 import { defaultForm } from 'src/app/models/default-form';
 import { ListasOpcoesService } from 'src/app/services/listas-opcoes.service';
+import { HttpClient } from '@angular/common/http';
+
+
+
 
 @Component({
   selector: 'app-form',
@@ -12,10 +16,9 @@ import { ListasOpcoesService } from 'src/app/services/listas-opcoes.service';
 export class FormComponent {
   form = { ...defaultForm }; // Cópia do formulário para evitar alterações diretas
   listasOpcoes: any;
-  lastField: { field: string, value: any } | null = null; // Armazena a última alteração
-  historyStack: { field: string; oldValue: any }[] = []; // Pilha para armazenar as últimas alterações (permite múltiplos "Ctrl+Z")
+  loading: boolean = false;
 
-  constructor(private listaopcoesService: ListasOpcoesService, private eletroService: EletroService) {
+  constructor(private listaopcoesService: ListasOpcoesService, private eletroService: EletroService, private http: HttpClient) {
     this.listasOpcoes = this.listaopcoesService.getListaopcoes();
   }
 
@@ -34,7 +37,7 @@ export class FormComponent {
 
     eletroCodigo: string = '';
     eletroInfo: EletroDTO | null = null;
-    loading: boolean = false;
+
 
     buscarEletro() {
       this.loading = true;
@@ -52,15 +55,19 @@ export class FormComponent {
     }
 
     saveForm() {
-      if (this.loading) return;
+      this.http.post('http://localhost:8080/api/form', this.form).subscribe(
+        (response)=> {
+          console.log("Salvo", response);
+          this.loading = false;
+          alert('SALVO');
+        },
+        (error)=>{
+          console.error('ERRO', error);
+          this.loading = false;
+          alert('ERRO');
 
-      this.loading = true;
-      console.log('Formulário sendo salvo:', this.form);
-
-      setTimeout(() => {
-        this.loading = false;
-        alert('Formulário salvo com sucesso!');
-      }, 2000);
+        }
+      )
     }
 
     printPage() {

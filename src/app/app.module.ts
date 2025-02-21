@@ -19,7 +19,7 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
     ReactiveFormsModule,
   ],
   providers: [
-    provideHttpClient(withInterceptorsFromDi()) // Atualização aqui
+    provideHttpClient(withInterceptorsFromDi()), // Atualização aqui
   ],
   bootstrap: [AppComponent],
 })
